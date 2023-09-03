@@ -1,5 +1,7 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
       <Items>
@@ -7,45 +9,43 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <DisabledProjects>
     <String>WPVE/WPVE.csproj</String>
   </DisabledProjects>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml">
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/WPVE.Web.csproj">
     <Files>
       <File FileName="WPVE.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml" Line="1" Column="1" IsPinned="True" />
+      <File FileName="WPVE.Core/Domain/Blogs/BlogCategory.cs" Line="1" Column="1" />
+      <File FileName="WPVE.Core/Domain/Blogs/BlogPost.cs" Line="1" Column="1" />
+      <File FileName="WPVE.Data/Migrations/20230901184929_db_v1.cs" Line="90" Column="8" />
+      <File FileName="WPVE.Core/BaseEntity.cs" Line="1" Column="1" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/BlogController.cs" Line="28" Column="9" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/AddPostOrUpdate.cshtml" Line="15" Column="9" />
+      <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.202/Microsoft.Common.CurrentVersion.targets" Line="4752" Column="5" />
+      <File FileName="WPVE.Web/Controllers/AccountController.cs" Line="24" Column="7" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/UserController.cs" Line="32" Column="40" />
+      <File FileName="WPVE.Web/WPVE.Web.csproj" Line="1" Column="1" />
+      <File FileName="WPVE.Services/Blogs/BlogService.cs" Line="11" Column="9" />
+      <File FileName="WPVE.Services/Users/Profile.cs" Line="1" Column="1" />
+      <File FileName="WPVE.Services/Users/ProfileService.cs" Line="12" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Option id="ShowAllFiles" value="True" />
           <Node name="WPVE" expanded="True">
-            <Node name="WPVE.Core" expanded="True">
-              <Node name="Domain" expanded="True">
-                <Node name="Blogs" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="WPVE.Data" expanded="True" />
-            <Node name="WPVE.Services" expanded="True">
+            <Node name="WPVE.Services" selected="True">
+              <Node name="Blogs" expanded="True" />
               <Node name="Users" expanded="True" />
             </Node>
             <Node name="WPVE.Web" expanded="True">
               <Node name="Areas" expanded="True">
                 <Node name="Admin" expanded="True">
                   <Node name="Controllers" expanded="True" />
-                  <Node name="Views" expanded="True">
-                    <Node name="Manage" expanded="True" />
-                    <Node name="Shared" expanded="True">
-                      <Node name="_AdminLayout.cshtml" selected="True" />
-                    </Node>
-                  </Node>
                 </Node>
               </Node>
-              <Node name="Views" expanded="True" />
-              <Node name="wwwroot" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
@@ -53,5 +53,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

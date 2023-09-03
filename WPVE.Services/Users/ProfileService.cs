@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity;
 using WPVE.Data;
 
 namespace WPVE.Services.Users
@@ -8,14 +7,11 @@ namespace WPVE.Services.Users
     {
         
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public ProfileService(ApplicationDbContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+
+        public ProfileService(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         public async Task<Profile> GetUserProfileAsync(string id)
@@ -135,18 +131,18 @@ namespace WPVE.Services.Users
 
         public async Task<bool> ResetUserPassAsync(string id)
         {
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                return false;
-            }
-            var user = await Task.FromResult(_context.Users.Find(id));
-            if (user != null)
-            {
-                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                await _userManager.ResetPasswordAsync(user, code, "qwerty");
-                return true;
+            //if (string.IsNullOrWhiteSpace(id))
+            //{
+            //    return false;
+            //}
+            //var user = await Task.FromResult(_context.Users.Find(id));
+            //if (user != null)
+            //{
+            //    var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+            //    await _userManager.ResetPasswordAsync(user, code, "qwerty");
+            //    return true;
 
-            }
+            //}
             return false;
         }
 
