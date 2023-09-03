@@ -157,10 +157,20 @@ namespace WPVE.Web.Areas.Admin.Controllers
             var blogCategory = await _context.blogCategories.FindAsync(id);
             if (blogCategory != null)
             {
-                _context.blogCategories.Remove(blogCategory);
+                //check if category have post
+                var blogPost = await _context.BlogPosts.FirstOrDefaultAsync(x => x.BlogPostCategoryId == blogCategory.Id);
+                if (blogPost == null)
+                {
+                    _context.blogCategories.Remove(blogCategory);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    TempData["error_msg"] = "این گروه دارای محتوا می باشد شما قادر به حذف آن نمی باشید!";
+                }
             }
             
-            await _context.SaveChangesAsync();
+           
             return RedirectToAction(nameof(Index));
         }
 
