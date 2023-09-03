@@ -1,0 +1,66 @@
+@model IEnumerable<WPVE.Core.Domain.Blogs.BlogCategory>
+
+@{
+    ViewData["Title"] = "دسته بندی مطالب";
+    ViewData["Parent_Title"] = "مدیریت محتوا";
+    ViewData["parent_menu"] = "navigationDashboards";
+}
+
+<p>
+    <a class="btn btn-primary text-white" asp-action="Create"><i class="fa fa-plus"></i> جدید</a>
+</p>
+<div class="card">
+    <div class="card-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ParentId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedOnUtc)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IPAddress)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ParentId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedOnUtc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IPAddress)
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a> 
+            
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

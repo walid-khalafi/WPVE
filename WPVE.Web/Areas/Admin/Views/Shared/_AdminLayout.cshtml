@@ -203,6 +203,7 @@
             <ul id="navigationApps" class="@(parent_menu == "navigationApps"? "navigation-active":"")">
                 <li class="navigation-divider">مدیریت محتوا</li>
                 <li> <a class="@(action=="BlogIndex" ?"active":"")" asp-area="Admin" asp-controller="Blog" asp-action="Index"> وبلاگ </a></li>
+                <li> <a class="@(action=="BlogCategory" ?"active":"")" asp-area="Admin" asp-controller="BlogCategory" asp-action="Index">دسته بندی مطالب </a></li>
             </ul>
             <ul id="navigationProducts">
                 <li class="navigation-divider">محصولات</li>
