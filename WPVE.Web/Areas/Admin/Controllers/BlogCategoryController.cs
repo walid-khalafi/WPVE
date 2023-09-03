@@ -84,6 +84,10 @@ namespace WPVE.Web.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            var categories = await _context.blogCategories.ToListAsync();
+            ViewData["ParentId"] = new SelectList(categories, "Id", "Title",blogCategory.ParentId);
+
             return View(blogCategory);
         }
 
@@ -92,34 +96,35 @@ namespace WPVE.Web.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Title,Description,ParentId,Id,CreatedOnUtc,IPAddress")] BlogCategory blogCategory)
+        public async Task<IActionResult> Edit(string id, BlogCategory blogCategory)
         {
             if (id != blogCategory.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
+                blogCategory.CreatedOnUtc = DateTime.Now;
+                blogCategory.IPAddress = "";
+                if (blogCategory.ParentId == null)
                 {
-                    _context.Update(blogCategory);
-                    await _context.SaveChangesAsync();
+                    blogCategory.ParentId = Guid.Empty.ToString();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BlogCategoryExists(blogCategory.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(blogCategory);
+                await _context.SaveChangesAsync();
             }
-            return View(blogCategory);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BlogCategoryExists(blogCategory.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+                }
+        return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/BlogCategory/Delete/5

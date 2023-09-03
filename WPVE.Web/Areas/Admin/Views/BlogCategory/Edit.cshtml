@@ -1,12 +1,10 @@
 @model WPVE.Core.Domain.Blogs.BlogCategory
 
 @{
-    ViewData["Title"] = "ایجاد دسته بندی جدید";
+    ViewData["Title"] = "ویرایش دسته بندی";
     ViewData["Parent_Title"] = "داشبورد مدیریتی";
     ViewData["parent_menu"] = "navigationDashboards";
 }
-
-
 
 <div class="col-md-4">
     <div class="card">
@@ -14,7 +12,8 @@
             <strong>@ViewData["Title"]</strong>
         </div>
         <div class="card-body">
-            <form asp-action="Create">
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="Id" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Title" class="control-label"></label>
@@ -40,3 +39,5 @@
         </div>
     </div>
 </div>
+
+
