@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model BlogIndexViewModel
+@{
+    ViewData["Title"] = "Blog Posts";
+}
+
+<link href="~/lib/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover" id="tbl_posts" width="100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>StartDateUtc</th>
+                        <th>EndDateUtc</th>
+                        <th>CreatedOn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>StartDateUtc</th>
+                        <th>EndDateUtc</th>
+                        <th>CreatedOn</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <!-- DataTable -->
+    <script src="~/lib/DataTables/datatables.min.js"></script>
+
+    <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
+
+    <script type="text/javascript">$(document).ready(function () {
+
+          
+            $('#tbl_posts').dataTable({
+
+                serverSide: true,
+                "ajax": {
+                    "url": 'Blog/GetPosts',
+                    "type": "POST",
+                    "datatype": "json",
+                },
+                "iDisplayLength": 50,
+                // "serverSide": "false",
+                // "order": [0, "dsc"],
+                // "processing": "true",
+                "scrollY": 400,
+                "scrollX": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        text: '+ New Post',
+                        action: function (e, dt, node, config) {
+                            window.location.href = 'Blog/AddPostOrUpdate';
+                        }
+                    },
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+                   
+                ]
+            });
+        });</script>
+
+}
+

@@ -1,0 +1,57 @@
+﻿<Properties StartupConfiguration="WPVE.Web">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
+      <Items>
+        <StartupItem ItemId="{61470BE7-C8D7-4B74-A49C-FE5FDAB4CB0A}" ItemName="WPVE.Web" ConfigurationId="https" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <DisabledProjects>
+    <String>WPVE/WPVE.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml">
+    <Files>
+      <File FileName="WPVE.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml" Line="1" Column="1" IsPinned="True" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="WPVE" expanded="True">
+            <Node name="WPVE.Core" expanded="True">
+              <Node name="Domain" expanded="True">
+                <Node name="Blogs" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="WPVE.Data" expanded="True" />
+            <Node name="WPVE.Services" expanded="True">
+              <Node name="Users" expanded="True" />
+            </Node>
+            <Node name="WPVE.Web" expanded="True">
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True">
+                    <Node name="Manage" expanded="True" />
+                    <Node name="Shared" expanded="True">
+                      <Node name="_AdminLayout.cshtml" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Views" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+</Properties>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WPVE.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WPVE.Web.styles.css" asp-append-version="true" />
+
+</head>
+<body>
+
+
+
+    <main>
+
+
+        <header class="p-3 mb-3 border-bottom">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap" /></svg>
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2 link-secondary">Home</a></li>
+                        <li><a asp-action="Privacy" asp-controller="Home" class="nav-link px-2 link-dark">Privacy</a></li>
+                        <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li>
+                        <li><a href="#" class="nav-link px-2 link-dark">Shop</a></li>
+                    </ul>
+                    <div class="col-md-3 text-end">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown text-end">
+                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                    <li>  <a asp-action="Index" asp-controller="Dashboard" asp-area="Admin" class="btn btn-outline-primary me-2">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                </ul>
+                            </div>
+                          
+                        }
+                        else
+                        {
+                            <a asp-action="Login" asp-controller="Account" class="btn btn-outline-primary me-2">Login</a>
+                            <a asp-action="Register" asp-controller="Account" class="btn btn-primary">Register</a>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="b-example-divider"></div>
+
+
+    </main>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 1402 - WPVE.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebars.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

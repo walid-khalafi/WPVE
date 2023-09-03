@@ -1,0 +1,448 @@
+﻿@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment _env
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject IProfileService profileService
+@{
+    string parent_menu = "navigationApps";
+    if (ViewData["parent_menu"] != null)
+    {
+        parent_menu = ViewData["parent_menu"].ToString();
+    }
+
+    string controller = this.ViewContext.RouteData.Values["controller"].ToString();
+    string action = $"{this.ViewContext.RouteData.Values["controller"].ToString()}{this.ViewContext.RouteData.Values["action"].ToString()}";
+    var user = await UserManager.GetUserAsync(User);
+    var roles = await UserManager.GetRolesAsync(user);
+    WPVE.Services.Users.Profile profile = new Profile();
+    bool have_profile = await profileService.HaveProfile(user.Id);
+    if (have_profile)
+    {
+        profile = await profileService.GetUserProfileAsync(user.Id);
+    }
+    else
+    {
+        TempData["error_msg"] = $"شما هنوز پروفایل کاربری خود را ایجاد نکرده اید . ";
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>داشبورد مدیریتی | @ViewData["Parent_Title"] | @ViewData["Title"]</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/assets/media/image/favicon.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#5867dd">
+
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="~/admin/bundle.css" type="text/css">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="~/assets/css/app.css" type="text/css">
+
+</head>
+<body class="small-navigation">
+
+    <!-- begin::page loader-->
+    <div class="page-loader">
+        <div class="spinner-border"></div>
+    </div>
+    <!-- end::page loader -->
+    <!-- begin::sidebar user profile -->
+    <div class="sidebar" id="userProfile">
+        <div class="text-center p-4">
+            <figure class="avatar avatar-state-success avatar-lg mb-4">
+                @if (!string.IsNullOrWhiteSpace(profile.Avatar))
+                {
+                    <img src="@profile.Avatar" class="rounded-circle" alt="@profile.Full_Name">
+                }
+                else
+                {
+                    <img src="~/assets/media/image/logo-sm.png" class="rounded-circle" alt="@profile.Full_Name">
+                }
+            </figure>
+            <h4 class="text-primary m-b-10">@profile.Full_Name</h4>
+            <p class="text-muted d-flex align-items-center justify-content-center line-height-0 mb-0">
+                <div class="mb-4">
+                    @profile.Username
+                </div>
+                <div class="mb-4">
+                    <a asp-action="Index" asp-controller="Manage" data-toggle="tooltip" title="مدیریت پروفایل" class="btn btn-primary btn-pulse text-white"> <i class="ti-user mr-2"></i> مدیریت پروفایل</a>
+
+                </div>
+                <div class="mb-4">
+                    <a href="#" data-toggle="tooltip" title="تنظیمات" data-sidebar-open="#settings" class="btn btn-outline-warning btn-pulse text-warning">
+                        <i class="ti-settings mr-2"></i> تنظیمات
+                    </a>
+                </div>
+            </p>
+
+        </div>
+        <hr class="m-0">
+        <div class="p-4">
+            <div class="mb-4">
+                <span>
+                    ایمیل :
+                    @if (user.EmailConfirmed)
+                    {<i class="fa fa-check text-success"></i>}
+                    else
+                    {<i class="fa fa-cross text-danger"></i>} @profile.Email
+                </span>
+            </div>
+            <div class="mb-4">
+                <span>
+                    تلفن همراه :
+                    @if (user.PhoneNumberConfirmed)
+                    {<i class="fa fa-check text-success"></i>}
+                    else
+                    {<i class="fa fa-cross text-danger"></i>}@profile.Phonenumber
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- end::sidebar user profile -->
+    <!-- begin::sidebar settings -->
+    <div class="sidebar" id="settings">
+        <header>
+            <i class="ti-settings"></i> تنظیمات
+        </header>
+        <div class="p-4">
+            <div class="mb-3">
+                <h6 class="font-size-13 mb-3 text-muted">سیستم</h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between p-l-r-0 p-t-b-5">
+
+                        <span>تم تاریک</span>
+                        <div class="custom-control custom-switch">
+                            @if (profile.Theme_Color == "dark")
+                            {
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked onchange="ChangeThemeTo('light')">
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" onchange="ChangeThemeTo('dark')">
+                            }
+                            <label class="custom-control-label" for="customSwitch1"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between p-l-r-0 p-t-b-5">
+
+                        <span>منوی کناری کوچک </span>
+                        <div class="custom-control custom-switch">
+                            @if (profile.navigation_size == "small-navigation")
+                            {
+                                <input type="checkbox" class="custom-control-input" id="customSwitch2" checked onchange="ChangeNavigationType('normal-navigation')">
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="custom-control-input" id="customSwitch2" onchange="ChangeNavigationType('small-navigation')">
+                            }
+                            <label class="custom-control-label" for="customSwitch2"></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- end::sidebar settings -->
+    <!-- begin::navigation -->
+    <div class="navigation">
+        <div class="navigation-icon-menu">
+            <ul>
+                <li class="@(parent_menu == "navigationDashboards"  ? "active":"")" data-toggle="tooltip" title="داشبورد مدیریتی">
+                    <a href="#navigationDashboards" title="داشبورد مدیریتی">
+                        <i class="icon ti-pie-chart"></i>
+                        <span class="badge badge-warning">2</span>
+                    </a>
+                </li>
+                <li class="@(parent_menu == "navigationApps"  ? "active":"")" data-toggle="tooltip" title="مدیریت محتوا">
+                    <a href="#navigationApps" title="مدیریت محتوا">
+                        <i class="icon ti-package"></i>
+                    </a>
+                </li>
+                <li class="@(parent_menu == "navigationProducts"  ? "active":"")" data-toggle="tooltip" title="محصولات">
+                    <a href="#navigationProducts">
+                        <i class="icon ti-brush-alt"></i>
+                    </a>
+                </li>
+                <li class="@(parent_menu == "navigationSales"  ? "active":"")" data-toggle="tooltip" title="فروش">
+                    <a href="#navigationSales">
+                        <i class="icon ti-layers"></i>
+                    </a>
+                </li>
+                <li class="@(parent_menu == "navigationSettings"  ? "active":"")" data-toggle="tooltip" title="تنظیمات">
+                    <a href="#navigationSettings" title=" تنظیمات">
+                        <i class="icon ti-user"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li data-toggle="tooltip" title="ویرایش پروفایل">
+                    <a asp-action="Index" asp-controller="Manage" asp-area="Admin" class="go-to-page">
+                        <i class="icon ti-settings"></i>
+                    </a>
+                </li>
+                <li data-toggle="tooltip" title="خروج">
+                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                        <button href="@Url.Action("SignOut","Account")" onclick="RemoveCoockies()" class="go-to-page btn-block" style="padding:10px">
+                            <i class="icon ti-power-off text-danger"></i>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="navigation-menu-body">
+            <ul id="navigationDashboards" class="@(parent_menu == "navigationDashboards"? "navigation-active":"")">
+                <li class="navigation-divider">داشبورد مدیریتی</li>
+                <li> <a class="@(action=="Dashboard" ?"active":"")" asp-area="Admin" asp-controller="Dashboard" asp-action="Index"> داشبورد </a></li>
+            </ul>
+            <ul id="navigationApps" class="@(parent_menu == "navigationApps"? "navigation-active":"")">
+                <li class="navigation-divider">مدیریت محتوا</li>
+                <li> <a class="@(action=="BlogIndex" ?"active":"")" asp-area="Admin" asp-controller="Blog" asp-action="Index"> وبلاگ </a></li>
+            </ul>
+            <ul id="navigationProducts">
+                <li class="navigation-divider">محصولات</li>
+
+
+            </ul>
+            <ul id="navigationSales">
+                <li class="navigation-divider">فروش</li>
+
+            </ul>
+            <ul id="navigationSettings">
+                <li class="navigation-divider">تنظیمات</li>
+
+
+            </ul>
+        </div>
+    </div>
+    <!-- end::navigation -->
+    <!-- begin::header -->
+    <div class="header">
+
+        <!-- begin::header logo -->
+        <div class="header-logo">
+            <a href="#">
+                <img class="large-logo" src="~/assets/media/image/logo.png" alt="image">
+                <img class="small-logo" src="~/assets/media/image/logo-sm.png" alt="image">
+                <img class="dark-logo" src="~/assets/media/image/logo-dark.png" alt="image">
+            </a>
+        </div>
+        <!-- end::header logo -->
+        <!-- begin::header body -->
+        <div class="header-body">
+
+            <div class="header-body-left">
+
+                <h3 class="page-title">@ViewData["Title"].ToString()</h3>
+
+                <!-- begin::breadcrumb -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">داشبورد</a></li>
+                        <li class="breadcrumb-item "><a href="@ViewData["Parent_URL"]">@ViewData["Parent_Title"]</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+                    </ol>
+                </nav>
+                <!-- end::breadcrumb -->
+
+            </div>
+
+            <div class="header-body-right">
+                <!-- begin::navbar main body -->
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link bg-none" data-sidebar-open="#userProfile">
+                            <div>
+                                <figure class="avatar avatar-state-success avatar-sm">
+                                    @if (!string.IsNullOrWhiteSpace(profile.Avatar))
+                                    {
+                                        <img src="@profile.Avatar" class="rounded-circle" alt="@profile.Full_Name">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/media/image/logo-sm.png" class="rounded-circle" alt="@profile.Full_Name">
+                                    }
+                                </figure>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- end::navbar main body -->
+
+                <div class="d-flex align-items-center">
+                    <!-- begin::navbar navigation toggler -->
+                    <div class="d-xl-none d-lg-none d-sm-block navigation-toggler">
+                        <a href="#">
+                            <i class="ti-menu"></i>
+                        </a>
+                    </div>
+                    <!-- end::navbar navigation toggler -->
+                    <!-- begin::navbar toggler -->
+                    <div class="d-xl-none d-lg-none d-sm-block navbar-toggler">
+                        <a href="#">
+                            <i class="ti-arrow-down"></i>
+                        </a>
+                    </div>
+                    <!-- end::navbar toggler -->
+                </div>
+            </div>
+
+        </div>
+        <!-- end::header body -->
+
+    </div>
+    <!-- end::header -->
+    <!-- begin::main content -->
+    <main class="main-content">
+        @if (TempData["success_msg"] != null)
+        {
+            <div class="alert alert-success alert-with-border alert-dismissible" role="alert">
+                <i class="ti-check m-r-10"></i> @TempData["success_msg"]
+                <button type="button" class="close" data-dismiss="alert" aria-label="بستن">
+                    <i class="ti-close"></i>
+                </button>
+            </div>
+        }
+        @if (TempData["error_msg"] != null)
+        {
+            <div class="alert alert-danger alert-with-border alert-dismissible" role="alert">
+                <i class="ti-check m-r-10"></i> @TempData["error_msg"]
+                <button type="button" class="close" data-dismiss="alert" aria-label="بستن">
+                    <i class="ti-close"></i>
+                </button>
+            </div>
+        }
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                <i class="ti-check m-r-10"></i> @TempData["error_msg"]
+                <button type="button" class="close" data-dismiss="alert" aria-label="بستن">
+                    <i class="ti-close"></i>
+                </button>
+            </div>
+        }
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+
+
+        </div>
+
+    </main>
+    <!-- end::main content -->
+    <!-- begin::global scripts -->
+    <script src="~/admin/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <!-- end::custom scripts -->
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>// Check If Cookie exists and if it doesn't exists
+
+        if ($.cookie('welcome') == null) {
+            var date = new Date();
+            var minutes = 30;
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
+            // Create cookie
+            $.cookie('welcome', '1', { expires: date, path: '/' });
+            $(document).ready(function () {
+                 $('.page-loader').fadeOut(700, function () {
+                    setTimeout(function () {
+                        toastr.options = {
+                            timeOut: 3000,
+                            progressBar: true,
+                            showMethod: "slideDown",
+                            hideMethod: "slideUp",
+                            showDuration: 200,
+                            hideDuration: 200
+                        };
+                        toastr.success('@string.Format("خواش آمدید {0}",profile.Full_Name)');
+                    }, 1000);
+                });
+            });
+            // Display popup
+
+        }
+
+        function RemoveCoockies() {
+            $.removeCookie('welcome'); // => true
+        }
+
+        function ChangeThemeTo(theme) {
+
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("ChangeTheme","Users")',
+                data: {
+                    id: '@profile.Id',
+                    theme: theme,
+                },
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    if (data == "true") {
+                        window.location.href = window.location.href;
+                    }
+                },
+                error: function (err) {
+
+                }
+            })
+        }
+        function ChangeNavigationType(size) {
+
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("ChangeNavigation","Users")',
+                data: {
+                    id: '@profile.Id',
+                    size: size,
+                },
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    if (data == "true") {
+                        window.location.href = window.location.href;
+                    }
+                },
+                error: function (err) {
+
+                }
+            })
+        }
+
+        var CheckLogin = function () {
+            //your jQuery ajax code
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("CheckLogin","Home")',
+                data: {
+                    id: '@profile.Id',
+                },
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (err) {
+
+                }
+            })
+        };
+
+        var interval = 1000 * 10 * 1; // where X is your every X minutes
+
+        setInterval(CheckLogin, interval);
+    </script>
+</body>
+</html>
+
