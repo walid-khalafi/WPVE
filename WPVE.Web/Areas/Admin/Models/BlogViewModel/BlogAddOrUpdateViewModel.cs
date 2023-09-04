@@ -45,7 +45,11 @@ namespace WPVE.Web.Areas.Admin.Models.BlogViewModel
         /// </summary>
         [Display(Name = "تگ ها")]
         public string Tags { get; set; }
-
+        /// <summary>
+        /// Gets or sets the blog Category Identifier
+        /// </summary>
+        [Display(Name ="دسته بندی")]
+        public string BlogPostCategoryId { get; set; }
         /// <summary>
         /// Gets or sets the blog post start date and time
         /// </summary>
