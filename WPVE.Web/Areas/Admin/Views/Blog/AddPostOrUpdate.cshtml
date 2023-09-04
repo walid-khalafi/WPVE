@@ -18,7 +18,8 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="post" action="/Admin/Blog/BlogPostCreate" novalidate="novalidate">
+        <form id="form_add_or_update_post" method="post" action="/Admin/Blog/AddPostOrUpdate" novalidate="novalidate">
+            @Html.AntiForgeryToken()
             <div class="row pb-3">
                 <div class="col-md-6 float-right">
                     <h3 style="text-align:right!important">
@@ -57,13 +58,19 @@
                         </div>
                         <div class="mb-3">
                             <label asp-for="BodyOverview" class="form-label"></label>
-                            <input asp-for="BodyOverview" class="form-control">
+                            <input asp-for="BodyOverview" class="form-control" />
                             <div id="BodyOverviewHelp" class="form-text">Brief overview of this blog post. If specified, then it will be used instead of full body on the main blog page. HTML is supported.</div>
                         </div>
                         <div class="mb-3">
                             <label asp-for="Body" class="form-label"></label>
                             <textarea asp-for="Body" class="form-control" contenteditable="true"></textarea>
                             <div id="bodyHelp" class="form-text">the body of this blog entry.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="BlogPostCategoryId" class="form-label"></label>
+                          @Html.DropDownList("BlogPostCategoryId",null,"-- انتخاب --", htmlAttributes: new {@class="form-control" })
+                            <div id="tagsHelp" class="form-text">select blog post Category </div>
                         </div>
 
                         <div class="mb-3">
@@ -157,6 +164,71 @@
 
 
 
-        });</script>
+});
+
+        $("#form_add_or_update_post").submit(function (e) {
+
+            var BlogPostCategoryId = $("#BlogPostCategoryId").val();
+            var Title = $("#Title").val();
+            var BodyOverview = CKEDITOR.instances['BodyOverview'].getData();
+            var Body = CKEDITOR.instances['Body'].getData();
+            var Tags = $("#Tags").val();
+            var StartDateUtc = $("#StartDateUtc").val();
+            var EndDateUtc = $("#EndDateUtc").val();
+            var AllowComments = $("#AllowComments").val();
+            var IncludeInSitemap = $("#IncludeInSitemap").val();
+            var SeName = $("#SeName").val();
+            var MetaTitle = $("#MetaTitle").val();
+            var MetaKeywords = $("#MetaKeywords").val();
+            var MetaDescription = $("#MetaDescription").val();
+
+
+            $.ajax({
+                cache: false,
+                url: '/Admin/Blog/AddPostOrUpdate',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                   
+                    Title: Title,
+                    BodyOverview: BodyOverview,
+                    Body: Body,
+                    Tags: Tags,
+                  
+                    EndDateUtc: EndDateUtc,
+                    AllowComments: AllowComments,
+                    SeName: SeName,
+                    MetaTitle: MetaTitle,
+                    MetaKeywords: MetaKeywords,
+                    MetaDescription: MetaDescription,
+                    StartDateUtc: StartDateUtc,
+                    BlogPostCategoryId: BlogPostCategoryId
+                },
+                success: function (data) {
+                    clearform();
+
+                },
+                error: function (err) {
+
+                }
+            });
+
+            return false;
+        });
+
+        function clearform()
+            {
+            $("#Title").val("");
+            $("#BodyOverview").val("");
+            $("#Body").val("");
+            $("#Tags").val("");
+            $("#StartDateUtc").val("");
+            $("#EndDateUtc").val("");
+            $("#SeName").val("");
+            $("#MetaTitle").val("");
+            $("#MetaKeywords").val("");
+            $("#MetaDescription").val("");
+            }
+    </script>
 
 }
