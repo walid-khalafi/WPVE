@@ -8,3 +8,7 @@ WPVE free and open-source eCommerce solution
 * WPVE is cross-platform, and you can run it on Windows, Linux, or Mac.
 * All methods in WPVE are async.
 * WPVE supports two-factor authentication.
+
+### Contribute ###
+
+As a free and open-source project, we are very grateful to everyone who helps us to develop WPVE.
