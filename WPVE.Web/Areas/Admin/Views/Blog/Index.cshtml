@@ -8,28 +8,32 @@
     ViewData["parent_menu"] = "navigationDashboards";
 }
 
-<link href="~/lib/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
+
+<!-- DataTable -->
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
+
 <link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<style>
+    div.dataTables_filter {
+        float:right;
+    }
+</style>
 <div class="card">
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped table-hover" id="tbl_posts" width="100%">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>StartDateUtc</th>
-                        <th>EndDateUtc</th>
-                        <th>CreatedOn</th>
+                        <th>عنوان پست</th>
+                        <th width="100px">عملیات</th>
                     </tr>
                 </thead>
                 <tbody>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Title</th>
-                        <th>StartDateUtc</th>
-                        <th>EndDateUtc</th>
-                        <th>CreatedOn</th>
+                        <th>عنوان پست</th>
+                        <th>عملیات</th>
                     </tr>
                 </tfoot>
             </table>
@@ -43,12 +47,11 @@
 @section Scripts{
     <!-- DataTable -->
     <script src="~/lib/DataTables/datatables.min.js"></script>
-
     <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
 
     <script type="text/javascript">$(document).ready(function () {
 
-          
+
             $('#tbl_posts').dataTable({
 
                 serverSide: true,
@@ -58,15 +61,26 @@
                     "datatype": "json",
                 },
                 "iDisplayLength": 50,
-                // "serverSide": "false",
-                // "order": [0, "dsc"],
-                // "processing": "true",
+                "serverSide": "true",
+                "order": [0, "dsc"],
+                "processing": "true",
                 "scrollY": 400,
                 "scrollX": true,
                 dom: 'Bfrtip',
+                "columns": [
+                    { "data": "title", "name": "title" },
+    
+  
+                    {
+                        data: null, render: function (data, type, row) {
+                            return '<div class="btn-group"><a data-toggle="tooltip" data-placement="top" title="" data-original-title="ویرایش پست"  href="@Url.Action("AddPostOrUpdate", "Blog")/' + data.id + '" data-toggle="tooltip" data-original-title="ویرایش" class="btn  btn-primary btn-md  text-white"><i class="ti-pencil"></i></a><a href ="@Url.Action("Delete", "Users")?id=' + data.title  + '" data-toggle="tooltip" data-original-title="حذف" class="btn btn-danger  btn-md text-white" > <i class="ti-trash"></i></a></div>';
+                        }
+                    },
+
+                ],
                 buttons: [
                     {
-                        text: '+ New Post',
+                        text: '+ پست جدید',
                         action: function (e, dt, node, config) {
                             window.location.href = 'Blog/AddPostOrUpdate';
                         }
@@ -75,8 +89,27 @@
                     'excelHtml5',
                     'csvHtml5',
                     'pdfHtml5',
-                   
-                ]
+
+                ],
+
+                "oLanguage": {
+                    "sProcessing": '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">درحال پردازش...</span>',
+                    "sLengthMenu": "نمایش محتویات _MENU_",
+                    "sZeroRecords": "موردی یافت نشد",
+                    "sInfo": "نمایش _START_ تا _END_ از مجموع _TOTAL_ مورد",
+                    "sInfoEmpty": "تهی",
+                    "sInfoFiltered": "(فیلتر شده از مجموع _MAX_ مورد)",
+                    "sInfoPostFix": "",
+                    "sSearch": "عنوان پست  :",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "ابتدا",
+                        "sPrevious": "قبلی",
+                        "sNext": "بعدی",
+                        "sLast": "انتها"
+
+                    }
+                },
             });
         });</script>
 
