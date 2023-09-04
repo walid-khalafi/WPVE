@@ -115,10 +115,36 @@ namespace WPVE.Web.Areas.Admin.Controllers
         /// Add or Update Blog Post Page
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> AddPostOrUpdate()
+        [HttpGet]
+        public async Task<IActionResult> AddPostOrUpdate(string? id)
         {
             var categories = await _db.blogCategories.ToListAsync();
             ViewData["BlogPostCategoryId"] = new SelectList(categories, "Id", "Title");
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                var data = await _db.BlogPosts.FindAsync(id);
+                if (data != null)
+                {
+                    BlogAddOrUpdateViewModel model = new BlogAddOrUpdateViewModel()
+                    {
+                        Id = id,
+                        AllowComments = data.AllowComments,
+                        BlogPostCategoryId = data.BlogPostCategoryId,
+                        Body = data.Body,
+                        BodyOverview = data.BodyOverview,
+                        EndDateUtc = PersianDate.Standard.ConvertDate.ToFa(data.EndDateUtc),
+                        StartDateUtc = PersianDate.Standard.ConvertDate.ToFa(data.StartDateUtc),
+                        IncludeInSitemap = data.IncludeInSitemap,
+                        MetaDescription = data.MetaDescription,
+                        MetaKeywords = data.MetaKeywords,
+                        MetaTitle = data.MetaTitle,
+                        SeName = data.Title,
+                        Tags = data.Tags,
+                        Title = data.Title,
+                    };
+                    return View(model);
+                }
+            }
             return View();
         }
 
