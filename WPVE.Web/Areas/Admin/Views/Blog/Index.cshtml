@@ -73,7 +73,7 @@
   
                     {
                         data: null, render: function (data, type, row) {
-                            return '<div class="btn-group"><a data-toggle="tooltip" data-placement="top" title="" data-original-title="ویرایش پست"  href="@Url.Action("AddPostOrUpdate", "Blog")/' + data.id + '" data-toggle="tooltip" data-original-title="ویرایش" class="btn  btn-primary btn-md  text-white"><i class="ti-pencil"></i></a><a href ="@Url.Action("Delete", "Users")?id=' + data.title  + '" data-toggle="tooltip" data-original-title="حذف" class="btn btn-danger  btn-md text-white" > <i class="ti-trash"></i></a></div>';
+                            return '<div class="btn-group"><a data-toggle="tooltip" data-placement="top" title="" data-original-title="ویرایش پست"  href="@Url.Action("AddPostOrUpdate", "Blog")/' + data.id + '" data-toggle="tooltip" data-original-title="ویرایش" class="btn  btn-primary btn-md  text-white"><i class="ti-pencil"></i></a><a href ="@Url.Action("Delete", "Blog")?id=' + data.id  + '" data-toggle="tooltip" data-original-title="حذف" class="btn btn-danger  btn-md text-white" > <i class="ti-trash"></i></a></div>';
                         }
                     },
 

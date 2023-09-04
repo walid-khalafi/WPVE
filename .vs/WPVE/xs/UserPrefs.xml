@@ -6,28 +6,35 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Controllers/BlogController.cs">
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Views/Blog/Index.cshtml">
     <Files>
-      <File FileName="WPVE.Web/Areas/Admin/Controllers/BlogController.cs" Line="22" Column="28" />
-      <File FileName="WPVE.Web/Areas/Admin/Controllers/BlogCategoryController.cs" Line="76" Column="3" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/AddPostOrUpdate.cshtml" Line="205" Column="59" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/Index.cshtml" Line="63" Column="54" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/Index.cshtml" Line="76" Column="183" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/User/Index.cshtml" Line="121" Column="704" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/BlogController.cs" Line="119" Column="57" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/AddPostOrUpdate.cshtml" Line="4" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Option id="ShowAllFiles" value="True" />
           <Node name="WPVE">
-            <Node name="WPVE.Services" expanded="True" />
+            <Node name="WPVE.Core" expanded="True">
+              <Node name="Domain" expanded="True">
+                <Node name="Blogs" expanded="True" />
+              </Node>
+            </Node>
             <Node name="WPVE.Web">
               <Node name="Areas">
                 <Node name="Admin">
-                  <Node name="Controllers">
-                    <Node name="BlogController.cs" selected="True" />
+                  <Node name="Models" expanded="True">
+                    <Node name="BlogViewModel" expanded="True" />
                   </Node>
                   <Node name="Views">
-                    <Node name="Dashboard" expanded="True" />
-                    <Node name="Shared" expanded="True" />
+                    <Node name="Blog">
+                      <Node name="Index.cshtml" selected="True" />
+                    </Node>
+                    <Node name="User" expanded="True" />
                   </Node>
                 </Node>
               </Node>
@@ -38,15 +45,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <DisabledProjects>
     <String>WPVE/WPVE.csproj</String>
   </DisabledProjects>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/walidkh/Projects/WPVE/WPVE.Web/Areas/Admin/Controllers/BlogController.cs" relfile="WPVE.Web/Areas/Admin/Controllers/BlogController.cs" line="123" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

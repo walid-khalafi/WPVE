@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SkiaSharp;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -239,6 +240,45 @@ namespace WPVE.Web.Areas.Admin.Controllers
             }
             return Json("Error");
         }
+
+        // GET: Admin/BlogPost/Delete/5
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null || _db.BlogPosts == null)
+            {
+                return NotFound();
+            }
+
+            var blogPost = await _db.BlogPosts
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (blogPost == null)
+            {
+                return NotFound();
+            }
+
+            return View(blogPost);
+        }
+
+        // POST: Admin/BlogPost/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            if (_db.blogCategories == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.BlogPosts'  is null.");
+            }
+            var blogPost = await _db.BlogPosts.FindAsync(id);
+            if (blogPost != null)
+            {
+                _db.BlogPosts.Remove(blogPost);
+                await _db.SaveChangesAsync();
+            }
+
+
+            return RedirectToAction(nameof(Index));
+        }
+
         #endregion
     }
 }
