@@ -54,13 +54,13 @@ namespace WPVE.Web.Areas.Admin.Models.BlogViewModel
         /// Gets or sets the blog post start date and time
         /// </summary>
         [Display(Name = "شروع انتشار")]
-        public DateTime? StartDateUtc { get; set; }
+        public string? StartDateUtc { get; set; }
 
         /// <summary>
         /// Gets or sets the blog post end date and time
         /// </summary>
         [Display(Name = "پایان انتشار")]
-        public DateTime? EndDateUtc { get; set; }
+        public string? EndDateUtc { get; set; }
 
         /// <summary>
         /// Gets or sets the meta keywords

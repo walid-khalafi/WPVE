@@ -7,6 +7,10 @@
     ViewData["Parent_Title"] = "مدیریت محتوا";
     ViewData["parent_menu"] = "navigationDashboards";
 }
+<!-- Datepicker -->
+<link rel="stylesheet" href="~/admin/datepicker-jalali/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="~/admin/datepicker/daterangepicker.css">
+
 <!-- Tagsinput -->
 <link rel="stylesheet" href="~/lib/tagsinput/bootstrap-tagsinput.css" type="text/css">
 <style>
@@ -33,11 +37,11 @@
                 <div class="col-md-6 text-left float-left" style="text-align:left!important">
                     <button type="submit" name="save" class="btn btn-primary">
                         <i class="fa fa-save"></i> ذخیره و بستن
-                        
+
                     </button>
                     <button type="submit" name="save-continue" class="btn btn-primary">
                         <i class="fa fa-save"></i> ذخیره و ادامه ویرایش
-                       
+
                     </button>
                 </div>
             </div>
@@ -69,7 +73,7 @@
 
                         <div class="mb-3">
                             <label asp-for="BlogPostCategoryId" class="form-label"></label>
-                          @Html.DropDownList("BlogPostCategoryId",null,"-- انتخاب --", htmlAttributes: new {@class="form-control" })
+                            @Html.DropDownList("BlogPostCategoryId", null, "-- انتخاب --", htmlAttributes: new { @class = "form-control" })
                             <div id="tagsHelp" class="form-text">select blog post Category </div>
                         </div>
 
@@ -78,27 +82,41 @@
                             <input asp-for="Tags" class="form-control">
                             <div id="tagsHelp" class="form-text">Tags are keywords that this blog post can also be identified by. Enter a comma separated list of the tags to be associated with this blog post.</div>
                         </div>
-                        <div class="mb-3">
-                            <label asp-for="StartDateUtc" class="form-label"></label>
-                            <input asp-for="StartDateUtc" class="form-control" id="Title">
-                            <div id="StartDateUtcHelp" class="form-text">Set the blog post start date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="StartDateUtc" class="form-label"></label>
+                                    <input id="StartDateUtc" name="StartDateUtc" class="form-control" readonly dir="ltr" value="@PersianDate.Standard.ConvertDate.ToFa(DateTime.Now,"yyyy/M/d")" />
+                                    <div id="StartDateUtcHelp" class="form-text">Set the blog post start date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="EndDateUtc" class="form-label"></label>
+                                    <input id="EndDateUtc" name="EndDateUtc" class="form-control" readonly dir="ltr" value="@PersianDate.Standard.ConvertDate.ToFa(DateTime.Now,"yyyy/M/d")"/>
+                                    <div id="EndDateHelp" class="form-text">Set the blog post end date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label asp-for="EndDateUtc" class="form-label"></label>
-                            <input asp-for="EndDateUtc" class="form-control">
-                            <div id="EndDateHelp" class="form-text">Set the blog post end date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="AllowComments" class="form-label">
-                            </label>
-                            <input type="checkbox" asp-for="AllowComments">
-                            <div id="AllowCommentsHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="IncludeInSitemap" class="form-label">
-                            </label>
-                            <input type="checkbox" asp-for="IncludeInSitemap">
-                            <div id="IncludeInSitemapHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label asp-for="AllowComments" class="form-label">
+                                    </label>
+                                    <input type="checkbox" asp-for="AllowComments">
+                                    <div id="AllowCommentsHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="IncludeInSitemap" class="form-label">
+                                    </label>
+                                    <input type="checkbox" asp-for="IncludeInSitemap">
+                                    <div id="IncludeInSitemapHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,6 +165,12 @@
 </div>
 
 @section Scripts{
+    <!-- Datepicker -->
+    <script src="~/admin/datepicker-jalali/bootstrap-datepicker.min.js"></script>
+    <script src="~/admin/datepicker-jalali/bootstrap-datepicker.fa.min.js"></script>
+    <script src="~/admin/datepicker/daterangepicker.js"></script>
+ 
+
     <!-- CKEditor -->
     <script src="~/lib/ckeditor/ckeditor.js"></script>
 
@@ -165,6 +189,27 @@
 
 
 });
+
+        // ------
+        $('input[name="StartDateUtc"]').datepicker({
+            dateFormat: "yy/mm/dd",
+            showOtherMonths: true,
+            selectOtherMonths: false
+        });
+
+        $('input[name="EndDateUtc"]').datepicker({
+            dateFormat: "yy/mm/dd",
+            showOtherMonths: true,
+            selectOtherMonths: false
+        });
+
+
+
+        $('#Title').on('input', function () {
+          
+            $("#SeName").val($("#Title").val());
+        });
+
 
         $("#form_add_or_update_post").submit(function (e) {
 
@@ -189,12 +234,10 @@
                 type: 'POST',
                 dataType: "json",
                 data: {
-                   
                     Title: Title,
                     BodyOverview: BodyOverview,
                     Body: Body,
                     Tags: Tags,
-                  
                     EndDateUtc: EndDateUtc,
                     AllowComments: AllowComments,
                     SeName: SeName,
@@ -205,7 +248,24 @@
                     BlogPostCategoryId: BlogPostCategoryId
                 },
                 success: function (data) {
-                    clearform();
+                    switch (data) {
+                        case "Success":
+                            clearform();
+                            break;
+                        case "BadRequest":
+                            alert("Bad Request");
+                            break;
+                        case "NotFound":
+                            alert("Post NotFound")
+                            break;
+                        case "BadStartDateTime":
+                            alert("Wrong DateTime");
+                            break;
+                        case "Error":
+                            alert("Error");
+                            break;
+                    }
+
 
                 },
                 error: function (err) {
@@ -216,19 +276,18 @@
             return false;
         });
 
-        function clearform()
-            {
+        function clearform() {
+            $("#BlogPostCategoryId").val("");
             $("#Title").val("");
-            $("#BodyOverview").val("");
-            $("#Body").val("");
             $("#Tags").val("");
             $("#StartDateUtc").val("");
             $("#EndDateUtc").val("");
+            $("#AllowComments").val("");
+            $("#IncludeInSitemap").val("");
             $("#SeName").val("");
             $("#MetaTitle").val("");
             $("#MetaKeywords").val("");
             $("#MetaDescription").val("");
-            }
-    </script>
+        }</script>
 
 }

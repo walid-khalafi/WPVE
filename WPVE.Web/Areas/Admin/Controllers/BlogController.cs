@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WPVE.Web.Areas.Admin.Controllers
@@ -110,6 +111,10 @@ namespace WPVE.Web.Areas.Admin.Controllers
             return posts;
         }
 
+        /// <summary>
+        /// Add or Update Blog Post Page
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> AddPostOrUpdate()
         {
             var categories = await _db.blogCategories.ToListAsync();
@@ -117,12 +122,35 @@ namespace WPVE.Web.Areas.Admin.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Add or Update Blog Post
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<JsonResult> AddPostOrUpdate(BlogAddOrUpdateViewModel model)
         {
             if (model == null)
             {
-                return Json("Bad Request");
+                return Json("BadRequest");
+            }
+
+            DateTime StartDateUtc = new DateTime(DateTime.Now.Date.Year,DateTime.Now.Date.Month,DateTime.Now.Date.Day);
+            DateTime EndDateUtc = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day);
+
+            if (!string.IsNullOrWhiteSpace(model.StartDateUtc))
+            {
+               StartDateUtc = PersianDate.Standard.ConvertDate.ToEn(model.StartDateUtc);
+            }
+
+            if (!string.IsNullOrWhiteSpace(model.EndDateUtc))
+            {
+                EndDateUtc = PersianDate.Standard.ConvertDate.ToEn(model.EndDateUtc);
+
+                if (StartDateUtc > EndDateUtc)
+                {
+                    return Json("BadStartDateTime");
+                }
             }
 
             if (string.IsNullOrWhiteSpace(model.Id))
@@ -137,8 +165,8 @@ namespace WPVE.Web.Areas.Admin.Controllers
                     Tags = model.Tags,
                     AllowComments = model.AllowComments,
                     IncludeInSitemap = model.IncludeInSitemap,
-                    EndDateUtc = model.EndDateUtc,
-                    StartDateUtc = model.StartDateUtc,
+                    EndDateUtc = (StartDateUtc == EndDateUtc ? null : StartDateUtc),
+                    StartDateUtc = (StartDateUtc == EndDateUtc ? null : EndDateUtc),
                     CreatedOnUtc = DateTime.Now,
                     IPAddress = _ipAddress,
                     CreatedByUserID = _user_id,
@@ -162,8 +190,8 @@ namespace WPVE.Web.Areas.Admin.Controllers
                 data.Tags = model.Tags;
                 data.AllowComments = model.AllowComments;
                 data.IncludeInSitemap = model.IncludeInSitemap;
-                data.EndDateUtc = model.EndDateUtc;
-                data.StartDateUtc = model.StartDateUtc;
+                data.EndDateUtc = (StartDateUtc == EndDateUtc ? null : StartDateUtc);
+                data.StartDateUtc = (StartDateUtc == EndDateUtc ? null : EndDateUtc);
                 data.CreatedOnUtc = DateTime.Now;
                 data.IPAddress = _ipAddress;
                 data.CreatedByUserID = _user_id;
