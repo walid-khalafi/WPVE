@@ -4,125 +4,135 @@
 @model BlogAddOrUpdateViewModel
 @{
     ViewData["Title"] = "انتشار پست ";
+    ViewData["Parent_Title"] = "مدیریت محتوا";
+    ViewData["parent_menu"] = "navigationDashboards";
 }
 <!-- Tagsinput -->
 <link rel="stylesheet" href="~/lib/tagsinput/bootstrap-tagsinput.css" type="text/css">
 <style>
     .bootstrap-tagsinput .tag {
         color: rgb(50, 34, 254);
-        background-color:#c1c1c1;
+        background-color: #c1c1c1;
     }
 </style>
+
 <div class="card">
     <div class="card-body">
         <form method="post" action="/Admin/Blog/BlogPostCreate" novalidate="novalidate">
             <div class="row pb-3">
-                <div class="col-md-6 float-left">
-                    <h3 class="float-left">
-                        Add a new blog post
+                <div class="col-md-6 float-right">
+                    <h3 style="text-align:right!important">
+                        @ViewData["Title"].ToString()
                         <small>
                             <i class="fa fa-arrow-circle-left"></i>
-                            <a asp-area="Admin" asp-controller="Blog" asp-action="Index">back to blog post list</a>
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="Index">بازگشت به لیست پست ها</a>
                         </small>
                     </h3>
                 </div>
-                <div class="col-md-6 text-right float-right" style="text-align:right!important">
+                <div class="col-md-6 text-left float-left" style="text-align:left!important">
                     <button type="submit" name="save" class="btn btn-primary">
-                        <i class="fa fa-save"></i>
-                        Save
+                        <i class="fa fa-save"></i> ذخیره و بستن
+                        
                     </button>
                     <button type="submit" name="save-continue" class="btn btn-primary">
-                        <i class="fa fa-save"></i>
-                        Save and Continue Edit
+                        <i class="fa fa-save"></i> ذخیره و ادامه ویرایش
+                       
                     </button>
                 </div>
             </div>
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h4 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Info
-                        </button>
-                    </h4>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="mb-3">
-                                <label asp-for="Title" class="form-label"></label>
-                                <input asp-for="Title" class="form-control">
-                                <div id="TitleHelp" class="form-text">the title of this blog entry.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="BodyOverview" class="form-label"></label>
-                                <input asp-for="BodyOverview" class="form-control">
-                                <div id="BodyOverviewHelp" class="form-text">Brief overview of this blog post. If specified, then it will be used instead of full body on the main blog page. HTML is supported.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="Body" class="form-label"></label>
-                                <textarea asp-for="Body" class="form-control" contenteditable="true"></textarea>
-                                <div id="bodyHelp" class="form-text">the body of this blog entry.</div>
-                            </div>
 
-                            <div class="mb-3">
-                                <label asp-for="Tags" class="form-label"></label>
-                                <input asp-for="Tags" class="form-control">
-                                <div id="tagsHelp" class="form-text">Tags are keywords that this blog post can also be identified by. Enter a comma separated list of the tags to be associated with this blog post.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="StartDateUtc" class="form-label"></label>
-                                <input asp-for="StartDateUtc" class="form-control" id="Title">
-                                <div id="StartDateUtcHelp" class="form-text">Set the blog post start date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="EndDateUtc" class="form-label"></label>
-                                <input asp-for="EndDateUtc" class="form-control">
-                                <div id="EndDateHelp" class="form-text">Set the blog post end date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label asp-for="AllowComments" class="form-label">
+            <div class="accordion accordion-primary custom-accordion">
 
-                                </label>
-                                <input type="checkbox" asp-for="AllowComments">
-                                <div id="AllowCommentsHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
-                            </div>
+                <div class="accordion-row open">
+                    <a href="#" class="accordion-header">
+                        <span>محتوای پست</span>
+                        <i class="accordion-status-icon close fa fa-chevron-up"></i>
+                        <i class="accordion-status-icon open fa fa-chevron-down"></i>
+                    </a>
+                    <div class="accordion-body">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label"></label>
+                            <input asp-for="Title" class="form-control">
+                            <div id="TitleHelp" class="form-text">the title of this blog entry.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="BodyOverview" class="form-label"></label>
+                            <input asp-for="BodyOverview" class="form-control">
+                            <div id="BodyOverviewHelp" class="form-text">Brief overview of this blog post. If specified, then it will be used instead of full body on the main blog page. HTML is supported.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Body" class="form-label"></label>
+                            <textarea asp-for="Body" class="form-control" contenteditable="true"></textarea>
+                            <div id="bodyHelp" class="form-text">the body of this blog entry.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Tags" class="form-label"></label>
+                            <input asp-for="Tags" class="form-control">
+                            <div id="tagsHelp" class="form-text">Tags are keywords that this blog post can also be identified by. Enter a comma separated list of the tags to be associated with this blog post.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StartDateUtc" class="form-label"></label>
+                            <input asp-for="StartDateUtc" class="form-control" id="Title">
+                            <div id="StartDateUtcHelp" class="form-text">Set the blog post start date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="EndDateUtc" class="form-label"></label>
+                            <input asp-for="EndDateUtc" class="form-control">
+                            <div id="EndDateHelp" class="form-text">Set the blog post end date in Coordinated Universal Time (UTC). You can also leave it empty.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="AllowComments" class="form-label">
+                            </label>
+                            <input type="checkbox" asp-for="AllowComments">
+                            <div id="AllowCommentsHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="IncludeInSitemap" class="form-label">
+                            </label>
+                            <input type="checkbox" asp-for="IncludeInSitemap">
+                            <div id="IncludeInSitemapHelp" class="form-text">When checked, customers can leave comments about your blog entry.</div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            SEO
-                        </button>
-                    </h4>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="mb-3">
-                                <label asp-for="SeName" class="form-label">Search engine friendly page name</label>
-                                <input asp-for="SeName" class="form-control">
-                                <div id="SeNameHelp" class="form-text">Set a search engine friendly page name e.g. 'the-best-blog-post' to make your page URL 'http://www.yourStore.com/the-best-blog-post'. Leave empty to generate it automatically based on the title of the blog post.</div>
-                            </div>
 
-                            <div class="mb-3">
-                                <label asp-for="MetaTitle" class="form-label"></label>
-                                <input asp-for="MetaTitle" class="form-control">
-                                <div id="metaTitleHelp" class="form-text">Override the page title. The default is the title of the blog post.</div>
-                            </div>
+                <div class="accordion-row">
+                    <a href="#" class="accordion-header">
+                        <span>تنظیمات SEO</span>
+                        <i class="accordion-status-icon close fa fa-chevron-up"></i>
+                        <i class="accordion-status-icon open fa fa-chevron-down"></i>
+                    </a>
+                    <div class="accordion-body">
+                        <div class="mb-3">
+                            <label asp-for="SeName" class="form-label">Search engine friendly page name</label>
+                            <input asp-for="SeName" class="form-control">
+                            <div id="SeNameHelp" class="form-text">Set a search engine friendly page name e.g. 'the-best-blog-post' to make your page URL 'http://www.yourStore.com/the-best-blog-post'. Leave empty to generate it automatically based on the title of the blog post.</div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label asp-for="MetaKeywords" class="form-label"></label>
-                                <input asp-for="MetaKeywords" class="form-control">
-                                <div id="MetaKeywordsHelp" class="form-text">Meta keywords to be added to blog post page header.</div>
-                            </div>
+                        <div class="mb-3">
+                            <label asp-for="MetaTitle" class="form-label"></label>
+                            <input asp-for="MetaTitle" class="form-control">
+                            <div id="metaTitleHelp" class="form-text">Override the page title. The default is the title of the blog post.</div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label asp-for="MetaDescription" class="form-label"></label>
-                                <input asp-for="MetaDescription" class="form-control">
-                                <div id="MetaDescriptionHelp" class="form-text">Meta description to be added to blog post page header.</div>
-                            </div>
+                        <div class="mb-3">
+                            <label asp-for="MetaKeywords" class="form-label"></label>
+                            <input asp-for="MetaKeywords" class="form-control">
+                            <div id="MetaKeywordsHelp" class="form-text">Meta keywords to be added to blog post page header.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="MetaDescription" class="form-label"></label>
+                            <input asp-for="MetaDescription" class="form-control">
+                            <div id="MetaDescriptionHelp" class="form-text">Meta description to be added to blog post page header.</div>
                         </div>
                     </div>
                 </div>
+
 
             </div>
+
+
 
         </form>
 
@@ -135,8 +145,7 @@
 
     <script src="~/lib/tagsinput/bootstrap-tagsinput.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+    <script type="text/javascript">$(document).ready(function () {
 
             if ($('#Body').length) {
                 CKEDITOR.replace('Body');
@@ -146,7 +155,7 @@
             }
             $('input[name="Tags"').tagsinput('items');
 
-           
+
 
         });</script>
 
