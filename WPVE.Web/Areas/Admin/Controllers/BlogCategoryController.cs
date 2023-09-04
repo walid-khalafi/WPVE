@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,16 @@ namespace WPVE.Web.Areas.Admin.Controllers
     public class BlogCategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private string _user_id;
+        private string _ipAddress;
 
-        public BlogCategoryController(ApplicationDbContext context)
+        public BlogCategoryController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+            _ipAddress = _httpContextAccessor.HttpContext.Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            _user_id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
         // GET: Admin/BlogCategory
@@ -51,7 +58,7 @@ namespace WPVE.Web.Areas.Admin.Controllers
             {
                 blogCategory.Id = Guid.NewGuid().ToString();
                 blogCategory.CreatedOnUtc = DateTime.Now;
-                blogCategory.IPAddress = "";
+                blogCategory.IPAddress = _ipAddress;
                 if (blogCategory.ParentId == null)
                 {
                     blogCategory.ParentId = Guid.Empty.ToString();
@@ -105,7 +112,7 @@ namespace WPVE.Web.Areas.Admin.Controllers
             try
             {
                 blogCategory.CreatedOnUtc = DateTime.Now;
-                blogCategory.IPAddress = "";
+                blogCategory.IPAddress = _ipAddress;
                 if (blogCategory.ParentId == null)
                 {
                     blogCategory.ParentId = Guid.Empty.ToString();

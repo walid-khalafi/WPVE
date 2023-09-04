@@ -6,6 +6,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WPVE.Web.Areas.Admin.Models.BlogViewModel;
 using WPVE.Data;
+using System.Drawing.Imaging;
+using System.Net;
+using System.Data;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WPVE.Web.Areas.Admin.Controllers
@@ -16,11 +23,18 @@ namespace WPVE.Web.Areas.Admin.Controllers
     {
         #region Fields
         private readonly ApplicationDbContext _db;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private string _user_id;
+        private string _ipAddress;
+
         #endregion
 
         #region Ctor
-        public BlogController(ApplicationDbContext db) {
+        public BlogController(ApplicationDbContext db, IHttpContextAccessor httpContextAccessor) {
             _db = db;
+            _httpContextAccessor = httpContextAccessor;
+            _ipAddress = _httpContextAccessor.HttpContext.Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            _user_id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
         #endregion
 
@@ -96,8 +110,80 @@ namespace WPVE.Web.Areas.Admin.Controllers
             return posts;
         }
 
-        public IActionResult AddPostOrUpdate() {
+        public async Task<IActionResult> AddPostOrUpdate()
+        {
+            var categories = await _db.blogCategories.ToListAsync();
+            ViewData["BlogPostCategoryId"] = new SelectList(categories, "Id", "Title");
             return View();
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> AddPostOrUpdate(BlogAddOrUpdateViewModel model)
+        {
+            if (model == null)
+            {
+                return Json("Bad Request");
+            }
+
+            if (string.IsNullOrWhiteSpace(model.Id))
+            {
+                _db.BlogPosts.Add(new Core.Domain.Blogs.BlogPost()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Title = model.Title,
+                    BlogPostCategoryId = model.BlogPostCategoryId,
+                    Body = model.Body,
+                    BodyOverview = model.BodyOverview,
+                    Tags = model.Tags,
+                    AllowComments = model.AllowComments,
+                    IncludeInSitemap = model.IncludeInSitemap,
+                    EndDateUtc = model.EndDateUtc,
+                    StartDateUtc = model.StartDateUtc,
+                    CreatedOnUtc = DateTime.Now,
+                    IPAddress = _ipAddress,
+                    CreatedByUserID = _user_id,
+                    LanguageId = 0,
+                    MetaDescription = model.MetaDescription,
+                    MetaKeywords = model.MetaKeywords,
+                    MetaTitle = model.MetaTitle,
+                });
+            }
+            else
+            {
+                var data = await _db.BlogPosts.FindAsync(model.Id);
+                if (data == null)
+                {
+                    return Json("NotFound");
+                }
+                data.Title = model.Title;
+                data.BlogPostCategoryId = model.BlogPostCategoryId;
+                data.Body = model.Body;
+                data.BodyOverview = model.BodyOverview;
+                data.Tags = model.Tags;
+                data.AllowComments = model.AllowComments;
+                data.IncludeInSitemap = model.IncludeInSitemap;
+                data.EndDateUtc = model.EndDateUtc;
+                data.StartDateUtc = model.StartDateUtc;
+                data.CreatedOnUtc = DateTime.Now;
+                data.IPAddress = _ipAddress;
+                data.CreatedByUserID = _user_id;
+                data.LanguageId = 0;
+                data.MetaDescription = model.MetaDescription;
+                data.MetaKeywords = model.MetaKeywords;
+                data.MetaTitle = model.MetaTitle;
+            }
+            try
+            {
+                await _db.SaveChangesAsync();
+                return Json("Success");
+                
+            }
+            catch (Exception ex)
+            {
+                
+                Console.WriteLine(ex.Message);
+            }
+            return Json("Error");
         }
         #endregion
     }
