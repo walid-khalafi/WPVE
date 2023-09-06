@@ -1,0 +1,325 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Product
+@{
+    ViewData["Title"] = "افزودن محصول جدید";
+    ViewData["Parent_Title"] = "محصولات";
+    ViewData["parent_menu"] = "navigationProducts";
+
+}
+
+<!-- Form wizard -->
+<link rel="stylesheet" href="~/admin/form-wizard/jquery.steps.css" type="text/css">
+<!-- Dropzone -->
+<link rel="stylesheet" href="~/admin/dropzone/dropzone.css" type="text/css">
+<!-- Datepicker -->
+<link rel="stylesheet" href="~/admin/datepicker-jalali/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="~/admin/datepicker/daterangepicker.css">
+
+<!-- Tagsinput -->
+<link rel="stylesheet" href="~/lib/tagsinput/bootstrap-tagsinput.css" type="text/css">
+<div class="card">
+    <div class="card-body">
+
+        <form id="form1">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="accordion custom-accordion">
+
+                        <div class="accordion-row open">
+                            <a href="#" class="accordion-header">
+                                <span>اطلاعات محصول</span>
+                                <i class="accordion-status-icon close fa fa-chevron-up"></i>
+                                <i class="accordion-status-icon open fa fa-chevron-down"></i>
+                            </a>
+                            <div class="accordion-body">
+
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="Name"></label>
+                                    <input asp-for="Name" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="ShortDescription"></label>
+                                    <textarea asp-for="ShortDescription" class="form-control" rows="5"></textarea>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="FullDescription"></label>
+                                    <textarea asp-for="FullDescription" class="form-control" rows="5"></textarea>
+
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="ProductCategories"></label>
+                                    <input asp-for="ProductCategories" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="ManufacturerId"></label>
+                                    <input asp-for="ManufacturerId" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="ProductTags"></label>
+                                    <input asp-for="ProductTags" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="accordion-row">
+                            <a href="#" class="accordion-header">
+                                <span>تصاویر محصول</span>
+                                <i class="accordion-status-icon close fa fa-chevron-up"></i>
+                                <i class="accordion-status-icon open fa fa-chevron-down"></i>
+                            </a>
+                            <div class="accordion-body">
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="IntoVideoUrl"></label>
+                                    <input asp-for="IntoVideoUrl" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="MainPicUrl"></label>
+                                    <input asp-for="MainPicUrl" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <div class="dropzone"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="accordion-row">
+                            <a href="#" class="accordion-header">
+                                <span>تنظیمات SEO</span>
+                                <i class="accordion-status-icon close fa fa-chevron-up"></i>
+                                <i class="accordion-status-icon open fa fa-chevron-down"></i>
+                            </a>
+                            <div class="accordion-body">
+
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="MetaTitle"></label>
+                                    <input asp-for="MetaTitle" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="MetaKeywords"></label>
+                                    <input asp-for="MetaKeywords" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="MetaDescription"></label>
+                                    <input asp-for="MetaDescription" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="accordion" id="accordionExample">
+
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-link primary-font" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-eye"></i> وضعیت انتشار
+                                </button>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="Published">
+                                    <label asp-for="Published"></label>
+
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="ShowOnHomepage">
+                                    <label asp-for="ShowOnHomepage"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <button class="btn btn-link primary-font collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    سفارش
+                                </button>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="StockQuantity"></label>
+                                    <input asp-for="StockQuantity" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="OrderMinimumQuantity"></label>
+                                    <input asp-for="OrderMinimumQuantity" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="OrderMaximumQuantity"></label>
+                                    <input asp-for="OrderMaximumQuantity" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="AvailableForPreOrder">
+                                    <label asp-for="AvailableForPreOrder"></label>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="NotReturnable">
+                                    <label asp-for="NotReturnable"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <button class="btn btn-link primary-font collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    فروش
+                                </button>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="Price"></label>
+                                    <input asp-for="Price" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="CallForPrice">
+                                    <label asp-for="CallForPrice"></label>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="DisableBuyButton">
+                                    <label asp-for="DisableBuyButton"></label>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <input asp-for="IsTaxExempt">
+                                    <label asp-for="IsTaxExempt"></label>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="TaxCategoryId"></label>
+                                    <input asp-for="TaxCategoryId" class="form-control">
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <button class="btn btn-link primary-font collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    حمل و نقل
+                                </button>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="Weight"></label>
+                                    <input asp-for="Weight" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="Length"></label>
+                                    <input asp-for="Length" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="Width"></label>
+                                    <input asp-for="Height" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                                <div class="form-group wd-xs-300">
+                                    <label asp-for="Width"></label>
+                                    <input asp-for="Height" class="form-control" required>
+                                    <div class="valid-feedback">
+                                        صحیح است!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+
+    <!-- Datepicker -->
+    <script src="~/admin/datepicker-jalali/bootstrap-datepicker.min.js"></script>
+    <script src="~/admin/datepicker-jalali/bootstrap-datepicker.fa.min.js"></script>
+    <script src="~/admin/datepicker/daterangepicker.js"></script>
+
+
+    <!-- CKEditor -->
+    <script src="~/lib/ckeditor/ckeditor.js"></script>
+
+    <script src="~/lib/tagsinput/bootstrap-tagsinput.js"></script>
+    <!-- Dropzone -->
+    <script src="~/admin/dropzone/dropzone.js"></script>
+    <script src="~/assets/js/examples/dropzone.js"></script>
+
+    <script type="text/javascript">$(document).ready(function () {
+
+    if ($('#FullDescription').length) {
+                CKEDITOR.replace('FullDescription');
+            }
+           
+    $('input[name="ProductTags"').tagsinput('items');
+
+
+
+});
+        </script>
+}
