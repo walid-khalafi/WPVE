@@ -50,6 +50,7 @@
     <None Remove="Areas\Admin\Views\Blog\" />
     <None Remove="Areas\Admin\Views\User\" />
     <None Remove="Areas\Admin\Views\Manage\" />
+    <None Remove="Areas\Admin\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extentions\" />
@@ -67,6 +68,7 @@
     <Folder Include="Areas\Admin\Views\Blog\" />
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Admin\Views\Manage\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\svgs\" />
