@@ -1,8 +1,5 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
       <Items>
@@ -10,8 +7,9 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <DisabledProjects>
     <String>WPVE/WPVE.csproj</String>
   </DisabledProjects>
@@ -20,7 +18,12 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WPVE" expanded="True">
-            <Node name="WPVE.Core" expanded="True" />
+            <Node name="WPVE.Core" expanded="True">
+              <Node name="Domain" expanded="True">
+                <Node name="Catalog" expanded="True" />
+              </Node>
+              <Node name="BaseEntity.cs" selected="True" />
+            </Node>
             <Node name="WPVE.Web" expanded="True">
               <Node name="Areas" expanded="True">
                 <Node name="Admin" expanded="True" />
@@ -32,4 +35,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
