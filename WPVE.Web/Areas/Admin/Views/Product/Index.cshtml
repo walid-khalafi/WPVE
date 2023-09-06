@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "لیست محصولات";
+    ViewData["Parent_Title"] = "محصولات";
+    ViewData["parent_menu"] = "navigationProducts";
+}
+
+<!-- DataTable -->
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
+
+<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<style>
+    div.dataTables_filter {
+        float: right;
+    }
+    td,th{
+        text-align:center
+    }
+</style>
+<a class="btn btn-primary text-white" asp-area="Admin" asp-controller="Product" asp-action="Create"><i class="fa fa-plus"></i> افزودن محصول جدید</a>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover table-striped" width="100%" id="tbl_products">
+                <thead>
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>قیمت</th>
+                        <th>مجمودی انبار</th>
+                        <th>وضعیت انتشار</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>قیمت</th>
+                        <th>مجمودی انبار</th>
+                        <th>وضعیت انتشار</th>
+                        <th>عملیات</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+    <!-- DataTable -->
+    <script src="~/lib/DataTables/datatables.min.js"></script>
+    <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
+
+    <script type="text/javascript">$(document).ready(function () {
+
+
+            $('#tbl_products').dataTable({
+
+                "iDisplayLength": 50,
+                dom: 'Bfrtip',
+                buttons: [
+
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+
+                ],
+
+                "oLanguage": {
+                    "sProcessing": '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">درحال پردازش...</span>',
+                    "sLengthMenu": "نمایش محتویات _MENU_",
+                    "sZeroRecords": "موردی یافت نشد",
+                    "sInfo": "نمایش _START_ تا _END_ از مجموع _TOTAL_ مورد",
+                    "sInfoEmpty": "تهی",
+                    "sInfoFiltered": "(فیلتر شده از مجموع _MAX_ مورد)",
+                    "sInfoPostFix": "",
+                    "sSearch": " نام محصول  :",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "ابتدا",
+                        "sPrevious": "قبلی",
+                        "sNext": "بعدی",
+                        "sLast": "انتها"
+
+                    }
+                },
+            });
+        });</script>
+
+
+
+
+}
