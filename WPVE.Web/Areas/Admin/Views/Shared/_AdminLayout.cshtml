@@ -205,12 +205,11 @@
                 <li> <a class="@(action=="BlogIndex" ?"active":"")" asp-area="Admin" asp-controller="Blog" asp-action="Index"> وبلاگ </a></li>
                 <li> <a class="@(action=="BlogCategory" ?"active":"")" asp-area="Admin" asp-controller="BlogCategory" asp-action="Index">دسته بندی مطالب </a></li>
             </ul>
-            <ul id="navigationProducts">
+            <ul id="navigationProducts" class="@(parent_menu == "navigationProducts"? "navigation-active":"")">
                 <li class="navigation-divider">محصولات</li>
-
-
+                <li> <a class="@(action=="ProductIndex" ?"active":"")" asp-area="Admin" asp-controller="Product" asp-action="Index"> محصولات </a></li>
             </ul>
-            <ul id="navigationSales">
+            <ul id="navigationSales"  class="@(parent_menu == "navigationSales"? "navigation-active":"")">
                 <li class="navigation-divider">فروش</li>
 
             </ul>
