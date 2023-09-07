@@ -11,18 +11,30 @@
 
 <!-- Form wizard -->
 <link rel="stylesheet" href="~/admin/form-wizard/jquery.steps.css" type="text/css">
-<!-- Dropzone -->
-<link rel="stylesheet" href="~/admin/dropzone/dropzone.css" type="text/css">
+
 <!-- Datepicker -->
 <link rel="stylesheet" href="~/admin/datepicker-jalali/bootstrap-datepicker.min.css">
 <link rel="stylesheet" href="~/admin/datepicker/daterangepicker.css">
 
 <!-- Tagsinput -->
 <link rel="stylesheet" href="~/lib/tagsinput/bootstrap-tagsinput.css" type="text/css">
+
+
+<style>
+    .dropzone {
+        background: white;
+        border-radius: 5px;
+        border: 2px dashed rgb(0, 135, 247);
+        border-image: none;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 <div class="card">
     <div class="card-body">
 
-        <form id="form1">
+        <div id="frmCreateProduct">
             <div class="row">
                 <div class="col-md-8">
                     <div class="accordion custom-accordion">
@@ -104,10 +116,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group wd-xs-300">
-                                    <div class="dropzone"></div>
+
+                                    <div id="invoice_details" class="form-group item_row">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="file" id="file" name="file" />
+                                            </div>
+                               
+                                        </div>
+                                    </div>
+                                    <div class="from-group" id="grp_end">
+                                        <div class="col-md-1">
+                                            <button id="AddNewRow" class="btn btn-primary btn-outline  btn-lg m-r-5"><i class="fa fa-plus"></i> افزودن</button>
+                                        </div>
+                                    </div>
                                 </div>
-
-
                             </div>
                         </div>
                         <div class="accordion-row">
@@ -290,7 +314,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -301,25 +325,38 @@
     <script src="~/admin/datepicker-jalali/bootstrap-datepicker.fa.min.js"></script>
     <script src="~/admin/datepicker/daterangepicker.js"></script>
 
-
     <!-- CKEditor -->
     <script src="~/lib/ckeditor/ckeditor.js"></script>
 
     <script src="~/lib/tagsinput/bootstrap-tagsinput.js"></script>
-    <!-- Dropzone -->
-    <script src="~/admin/dropzone/dropzone.js"></script>
-    <script src="~/assets/js/examples/dropzone.js"></script>
 
     <script type="text/javascript">$(document).ready(function () {
 
-    if ($('#FullDescription').length) {
+            if ($('#FullDescription').length) {
                 CKEDITOR.replace('FullDescription');
             }
-           
-    $('input[name="ProductTags"').tagsinput('items');
+
+            $('input[name="ProductTags"').tagsinput('items');
+
+
+
+
 
 
 
 });
-        </script>
+
+
+
+        $('#frmCreateProduct').on('click', "#AddNewRow", function () {
+            $("#grp_end:last").before('<div id="invoice_details" class="form-group item_row"> <div class="row"><div class="col-md-6"><input id="file" name="file" class="form-control input_view" type="file" /></div><div class="col-md-1"><a class="delete btn btn-danger"  title="Remove row"><i class="fa fa-trash text-white"></i></a></div></div></div>');
+           
+            return false;
+        });
+        $(document).on("click", ".delete", function () {
+            $(this).parents('.item_row').remove();
+           
+        });
+
+    </script>
 }
