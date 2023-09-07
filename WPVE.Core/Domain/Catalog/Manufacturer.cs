@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
 namespace WPVE.Core.Domain.Catalog
 {
     public class Manufacturer : BaseEntity
@@ -10,11 +13,14 @@ namespace WPVE.Core.Domain.Catalog
         /// <summary>
         /// Gets or sets the name
         /// </summary>
+        [Display(Name = "عنوان سازنده")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the description
         /// </summary>
+
+        [Display(Name = "توضیحات")]
         public string Description { get; set; }
 
         /// <summary>
