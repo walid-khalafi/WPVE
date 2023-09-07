@@ -1,53 +1,119 @@
 @model IEnumerable<WPVE.Core.Domain.Catalog.ProductTag>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "تگ محصولات";
+    ViewData["Parent_Title"] = "محصولات";
+    ViewData["parent_menu"] = "navigationProducts";
 }
 
-<h1>Index</h1>
+<!-- DataTable -->
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naame)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedOnUtc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedOnUtc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IPAddress)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naame)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOnUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedOnUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IPAddress)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<style>
+    div.dataTables_filter {
+        float: right;
+    }
+
+    td, th {
+        text-align: center
+    }
+</style>
+
+<a class="btn btn-primary text-white" asp-action="Create"><i class="fa fa-plus mr-1"></i> جدید </a>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover table-striped" width="100%" id="tbl_tags">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+
+                        <th>عملیلات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+                            <td>
+                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
+
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+
+                        <th>عملیلات</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts{
+
+
+    <!-- DataTable -->
+    <script src="~/lib/DataTables/datatables.min.js"></script>
+    <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+$(document).ready(function () {
+
+
+    $('#tbl_tags').dataTable({
+
+                "iDisplayLength": 50,
+                dom: 'Bfrtip',
+                buttons: [
+
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+
+                ],
+
+                "oLanguage": {
+                    "sProcessing": '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">درحال پردازش...</span>',
+                    "sLengthMenu": "نمایش محتویات _MENU_",
+                    "sZeroRecords": "موردی یافت نشد",
+                    "sInfo": "نمایش _START_ تا _END_ از مجموع _TOTAL_ مورد",
+                    "sInfoEmpty": "تهی",
+                    "sInfoFiltered": "(فیلتر شده از مجموع _MAX_ مورد)",
+                    "sInfoPostFix": "",
+                    "sSearch": "عنوان تگ:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "ابتدا",
+                        "sPrevious": "قبلی",
+                        "sNext": "بعدی",
+                        "sLast": "انتها"
+
+                    }
+                },
+            });
+        });</script>
+
+
+
+
 }
-    </tbody>
-</table>
