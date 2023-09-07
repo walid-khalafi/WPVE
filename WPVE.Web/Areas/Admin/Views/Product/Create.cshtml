@@ -31,13 +31,15 @@
         margin-right: auto;
     }
 </style>
-<a href="JavaScript:AddProduct()" class="btn btn-success text-white"><i class="fa fa-save mr-1"> </i>  ذخیره و ادامه ویرایش </a>
-<a asp-action="Index" class="btn btn-primary text-white"><i class="fa fa-list mr-1"> </i> بازگشت به لیست</a>
-<div class="card mt-3" >
 
-    <div class="card-body">
+<form id="frmCreateProduct" class="form-horizontal" asp-action="Create" asp-controller="Product" asp-area="Admin" enctype="multipart/form-data">
+    <button type="submit" class="btn btn-success text-white"><i class="fa fa-save mr-1"> </i>  ذخیره و ادامه ویرایش </button>
+    <a asp-action="Index" class="btn btn-primary text-white"><i class="fa fa-list mr-1"> </i> بازگشت به لیست</a>
+    <div class="card mt-3">
 
-        <div id="frmCreateProduct">
+        <div class="card-body">
+
+
             <div class="row">
                 <div class="col-md-8">
                     <div class="accordion custom-accordion">
@@ -330,10 +332,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-</div>
-
+</form>
 @section Scripts{
 
     <!-- Datepicker -->
@@ -407,9 +409,7 @@
             var Width = $("#Width").val();
             var Height = $("#Height").val();
 
-    
-           
-        }
 
-    </script>
+
+        }</script>
 }

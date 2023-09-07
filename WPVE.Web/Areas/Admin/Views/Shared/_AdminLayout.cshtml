@@ -164,17 +164,17 @@
                         <i class="icon ti-package"></i>
                     </a>
                 </li>
-                <li class="@(parent_menu == "navigationProducts"  ? "active":"")" data-toggle="tooltip" title="محصولات">
+                <li class="@(parent_menu == "navigationProducts"  ? "active":"")" data-toggle="tooltip" title="مدیریت محصولات">
                     <a href="#navigationProducts">
                         <i class="icon ti-brush-alt"></i>
                     </a>
                 </li>
-                <li class="@(parent_menu == "navigationSales"  ? "active":"")" data-toggle="tooltip" title="فروش">
+                <li class="@(parent_menu == "navigationSales"  ? "active":"")" data-toggle="tooltip" title="مدیریت فروش">
                     <a href="#navigationSales">
                         <i class="icon ti-layers"></i>
                     </a>
                 </li>
-                <li class="@(parent_menu == "navigationSettings"  ? "active":"")" data-toggle="tooltip" title="تنظیمات">
+                <li class="@(parent_menu == "navigationSettings"  ? "active":"")" data-toggle="tooltip" title="تنظیمات سیستم">
                     <a href="#navigationSettings" title=" تنظیمات">
                         <i class="icon ti-user"></i>
                     </a>
@@ -206,8 +206,11 @@
                 <li> <a class="@(action=="BlogCategory" ?"active":"")" asp-area="Admin" asp-controller="BlogCategory" asp-action="Index">دسته بندی مطالب </a></li>
             </ul>
             <ul id="navigationProducts" class="@(parent_menu == "navigationProducts"? "navigation-active":"")">
-                <li class="navigation-divider">محصولات</li>
-                <li> <a class="@(action=="ProductIndex" ?"active":"")" asp-area="Admin" asp-controller="Product" asp-action="Index"> محصولات </a></li>
+                <li class="navigation-divider">مدیریت محصولات</li>
+                <li> <a class="@(action=="ProductIndex" ?"active":"")" asp-area="Admin" asp-controller="Product" asp-action="Index"> لیست محصولات </a></li>
+                <li> <a class="@(action=="ProductCategoryIndex" ?"active":"")" asp-area="Admin" asp-controller="ProductCategory" asp-action="Index"> دسته بندی محصولات </a></li>
+                <li> <a class="@(action=="ProductTagIndex" ?"active":"")" asp-area="Admin" asp-controller="ProductTag" asp-action="Index"> تگ های محصولات </a></li>
+                <li> <a class="@(action=="ManufacturerIndex" ?"active":"")" asp-area="Admin" asp-controller="Manufacturer" asp-action="Index"> سازنده ها </a></li>
             </ul>
             <ul id="navigationSales"  class="@(parent_menu == "navigationSales"? "navigation-active":"")">
                 <li class="navigation-divider">فروش</li>

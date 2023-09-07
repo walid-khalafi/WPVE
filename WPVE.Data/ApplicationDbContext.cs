@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WPVE.Core.Domain.Blogs;
 using WPVE.Core.Domain.Users;
+using WPVE.Core.Domain.Catalog;
 namespace WPVE.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -33,6 +34,23 @@ namespace WPVE.Data
         /// DataSet of Users Profile
         /// </summary>
         public DbSet<Profile>  Profiles { get; set; }
-     
+
+        /// <summary>
+        /// DataSet of Products
+        /// </summary>
+        public DbSet<Product> Products { get; set; }
+        /// <summary>
+        /// DataSet of Product Categories
+        /// </summary>
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        /// <summary>
+        /// DataSet of Manufacturers
+        /// </summary>
+        public DbSet<Manufacturer> Manufacturers { get; set; }
+        /// <summary>
+        /// DataSet of Product Tags
+        /// </summary>
+        public DbSet<ProductTag> ProductTags { get; set; }
+
     }
 }

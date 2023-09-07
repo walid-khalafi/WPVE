@@ -181,6 +181,10 @@ namespace WPVE.Core.Domain.Catalog
         [Display(Name = "تصاویر محصول")]
         public string Pictures { get; set; }
 
+        /// <summary>
+        /// Gets or sets the User identifier
+        /// </summary>
+        public string CreatedByUserID { get; set; }
     }
 }
 
