@@ -626,7 +626,7 @@ namespace WPVE.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Naame")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
