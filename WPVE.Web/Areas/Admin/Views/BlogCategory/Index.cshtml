@@ -5,14 +5,15 @@
     ViewData["Parent_Title"] = "مدیریت محتوا";
     ViewData["parent_menu"] = "navigationDashboards";
 }
+<!-- DataTable -->
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
 
-<p>
+<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
     <a class="btn btn-primary text-white" asp-action="Create"><i class="fa fa-plus"></i> جدید</a>
-</p>
 <div class="card">
     <div class="card-body">
 
-        <table class="table">
+        <table class="table table-bordered table-hover table-striped" width="100%" id="tbl_BlogCategories">
             <thead>
                 <tr>
                     <th>
@@ -53,8 +54,8 @@
                             @Html.DisplayFor(modelItem => item.IPAddress)
                         </td>
                         <td>
-                            <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a> 
-            
+                            <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
+
                             <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
                         </td>
                     </tr>
