@@ -173,7 +173,7 @@ namespace WPVE.Core.Domain.Catalog
         /// <summary>
         /// Gets or sets the  main picture URL
         /// </summary>
-        [Display(Name = "تصویر محصول")]
+        [Display(Name = "تصویر شاخص")]
         public string MainPicUrl { get; set; }
         /// <summary>
         /// Gets or sets the all pictures URL
