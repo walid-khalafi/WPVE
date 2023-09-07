@@ -184,15 +184,18 @@
                                 </button>
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="Published">
-                                    <label asp-for="Published"></label>
+                                <div class="card-body">
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="Published">
+                                        <label asp-for="Published"></label>
 
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="ShowOnHomepage">
+                                        <label asp-for="ShowOnHomepage"></label>
+                                    </div>
                                 </div>
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="ShowOnHomepage">
-                                    <label asp-for="ShowOnHomepage"></label>
-                                </div>
+                                
                             </div>
                         </div>
 
@@ -204,35 +207,38 @@
                             </div>
 
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="StockQuantity"></label>
-                                    <input asp-for="StockQuantity" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                <div class="card-body">
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="StockQuantity"></label>
+                                        <input asp-for="StockQuantity" style="text-align:center" class="form-control" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="OrderMinimumQuantity"></label>
+                                        <input asp-for="OrderMinimumQuantity" style="text-align:center" class="form-control" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="OrderMaximumQuantity"></label>
+                                        <input asp-for="OrderMaximumQuantity" style="text-align:center" class="form-control" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="AvailableForPreOrder">
+                                        <label asp-for="AvailableForPreOrder"></label>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="NotReturnable">
+                                        <label asp-for="NotReturnable"></label>
                                     </div>
                                 </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="OrderMinimumQuantity"></label>
-                                    <input asp-for="OrderMinimumQuantity" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
-                                    </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="OrderMaximumQuantity"></label>
-                                    <input asp-for="OrderMaximumQuantity" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
-                                    </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="AvailableForPreOrder">
-                                    <label asp-for="AvailableForPreOrder"></label>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="NotReturnable">
-                                    <label asp-for="NotReturnable"></label>
-                                </div>
+                              
                             </div>
                         </div>
 
@@ -243,33 +249,36 @@
                                 </button>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="Price"></label>
-                                    <input asp-for="Price" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                <div class="card-body">
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="Price"></label>
+                                        <input asp-for="Price" class="form-control" style="text-align:center" value="0" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="CallForPrice">
-                                    <label asp-for="CallForPrice"></label>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="DisableBuyButton">
-                                    <label asp-for="DisableBuyButton"></label>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <input asp-for="IsTaxExempt">
-                                    <label asp-for="IsTaxExempt"></label>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="TaxCategoryId"></label>
-                                    <input asp-for="TaxCategoryId" class="form-control">
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="CallForPrice">
+                                        <label asp-for="CallForPrice"></label>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="DisableBuyButton">
+                                        <label asp-for="DisableBuyButton"></label>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <input asp-for="IsTaxExempt">
+                                        <label asp-for="IsTaxExempt"></label>
+                                    </div>
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="TaxCategoryId"></label>
+                                        <input asp-for="TaxCategoryId" class="form-control">
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
                                     </div>
                                 </div>
+                               
                             </div>
                         </div>
 
@@ -280,35 +289,39 @@
                                 </button>
                             </div>
                             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="Weight"></label>
-                                    <input asp-for="Weight" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                <div class="card-body">
+                                    <div class="form-group wd-xs-300">
+
+                                        <label asp-for="Weight"></label>
+                                        <input asp-for="Weight" class="form-control" style="text-align:center" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="Length"></label>
-                                    <input asp-for="Length" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="Length"></label>
+                                        <input asp-for="Length" class="form-control" style="text-align:center" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="Width"></label>
-                                    <input asp-for="Height" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="Width"></label>
+                                        <input asp-for="Width" class="form-control" style="text-align:center" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="Width"></label>
-                                    <input asp-for="Height" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+                                    <div class="form-group wd-xs-300">
+                                        <label asp-for="Height"></label>
+                                        <input asp-for="Height" class="form-control" style="text-align:center" required>
+                                        <div class="valid-feedback">
+                                            صحیح است!
+                                        </div>
                                     </div>
+
                                 </div>
-                            </div>
+                                                           </div>
                         </div>
 
                     </div>
