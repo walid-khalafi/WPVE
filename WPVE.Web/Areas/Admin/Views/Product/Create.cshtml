@@ -31,7 +31,10 @@
         margin-right: auto;
     }
 </style>
-<div class="card">
+<a href="JavaScript:AddProduct()" class="btn btn-success text-white"><i class="fa fa-save mr-1"> </i>  ذخیره و ادامه ویرایش </a>
+<a asp-action="Index" class="btn btn-primary text-white"><i class="fa fa-list mr-1"> </i> بازگشت به لیست</a>
+<div class="card mt-3" >
+
     <div class="card-body">
 
         <div id="frmCreateProduct">
@@ -123,7 +126,7 @@
                                             <div class="col-md-6">
                                                 <input class="form-control" type="file" id="file" name="file" />
                                             </div>
-                               
+
                                         </div>
                                     </div>
                                     <div class="from-group" id="grp_end">
@@ -195,7 +198,7 @@
                                         <label asp-for="ShowOnHomepage"></label>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -238,7 +241,7 @@
                                         <label asp-for="NotReturnable"></label>
                                     </div>
                                 </div>
-                              
+
                             </div>
                         </div>
 
@@ -278,7 +281,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
 
@@ -321,7 +324,7 @@
                                     </div>
 
                                 </div>
-                                                           </div>
+                            </div>
                         </div>
 
                     </div>
@@ -357,19 +360,25 @@
 
 
 
-});
+        });
 
 
 
         $('#frmCreateProduct').on('click', "#AddNewRow", function () {
             $("#grp_end:last").before('<div id="invoice_details" class="form-group item_row"> <div class="row"><div class="col-md-6"><input id="file" name="file" class="form-control input_view" type="file" /></div><div class="col-md-1"><a class="delete btn btn-danger"  title="Remove row"><i class="fa fa-trash text-white"></i></a></div></div></div>');
-           
+
             return false;
         });
         $(document).on("click", ".delete", function () {
             $(this).parents('.item_row').remove();
-           
+
         });
+
+
+
+        function AddProduct() {
+            alert("work");
+        }
 
     </script>
 }
