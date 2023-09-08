@@ -20,17 +20,6 @@
 <link rel="stylesheet" href="~/lib/tagsinput/bootstrap-tagsinput.css" type="text/css">
 
 
-<style>
-    .dropzone {
-        background: white;
-        border-radius: 5px;
-        border: 2px dashed rgb(0, 135, 247);
-        border-image: none;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
 
 <form id="frmCreateProduct" class="form-horizontal" asp-action="Create" asp-controller="Product" asp-area="Admin" enctype="multipart/form-data">
     <button type="submit" class="btn btn-success text-white"><i class="fa fa-save mr-1"> </i>  ذخیره و ادامه ویرایش </button>
@@ -76,29 +65,45 @@
                                 </div>
                                 <div class="form-group wd-xs-300">
                                     <label asp-for="ProductCategories"></label>
-                                    <input asp-for="ProductCategories" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
+
+                                    <div class="col-md-12">
+                                        <select id="ProductCategories" name="ProductCategories" multiple="multiple">
+                                            @{
+                                                List<ProductCategory> categories = (List<ProductCategory>)ViewData["ProductCategories"];
+                                            }
+                                            @if (categories != null)
+                                            {
+                                                foreach (var item in categories)
+                                                {
+                                                    <option value="@item.Id">@item.Name</option>
+                                                }
+                                            }
+                                        </select>
                                     </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="ManufacturerId"></label>
-                                    <input asp-for="ManufacturerId" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
-                                    </div>
-                                </div>
-                                <div class="form-group wd-xs-300">
-                                    <label asp-for="ProductTags"></label>
-                                    <input asp-for="ProductTags" class="form-control" required>
-                                    <div class="valid-feedback">
-                                        صحیح است!
-                                    </div>
-                                </div>
+                                           
+
+                                            <div class="valid-feedback">
+                                                صحیح است!
+                                            </div>
+                                        </div>
+                                        <div class="form-group wd-xs-300">
+                                            <label asp-for="ManufacturerId"></label>
+                                            <input asp-for="ManufacturerId" class="form-control" required>
+                                            <div class="valid-feedback">
+                                                صحیح است!
+                                            </div>
+                                        </div>
+                                        <div class="form-group wd-xs-300">
+                                            <label asp-for="ProductTags"></label>
+                                            <input asp-for="ProductTags" class="form-control" required>
+                                            <div class="valid-feedback">
+                                                صحیح است!
+                                            </div>
+                                        </div>
 
 
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
                         <div class="accordion-row">
                             <a href="#" class="accordion-header">
                                 <span>تصاویر محصول</span>
@@ -347,12 +352,17 @@
     <script src="~/lib/ckeditor/ckeditor.js"></script>
 
     <script src="~/lib/tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap-multiselect.js"></script>
 
     <script type="text/javascript">$(document).ready(function () {
 
             if ($('#FullDescription').length) {
                 CKEDITOR.replace('FullDescription');
             }
+
+    $('#ProductCategories').multiselect({
+        includeSelectAllOption: true,
+    });
 
             $('input[name="ProductTags"').tagsinput('items');
 
