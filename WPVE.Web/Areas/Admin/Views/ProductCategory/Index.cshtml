@@ -1,11 +1,10 @@
 @model IEnumerable<WPVE.Core.Domain.Catalog.ProductCategory>
 
 @{
-    ViewData["Title"] = "گروه بندی محصولات";
-    ViewData["Parent_Title"] = "محصولات";
+    ViewData["Title"] = "لیست گروه ها";
+    ViewData["Parent_Title"] = "مدیریت محصولات";
     ViewData["parent_menu"] = "navigationProducts";
 }
-
 <!-- DataTable -->
 <link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
 
@@ -19,13 +18,15 @@
         text-align: center
     }
 </style>
-<a class="btn btn-primary text-white" asp-action="Create"><i class="fa fa-plus mr-1"></i> جدید </a>
+
+<a class="btn btn-primary text-white" asp-action="Create"><i class="fa fa-plus mr-1"></i> جدید</a>
+
 <div class="card mt-3">
     <div class="card-body">
 
         <div class="table-responsive">
 
-            <table class="table table-bordered table-hover table-striped" width="100%" id="tbl_productCategories">
+            <table class="table table-bordered table-hover table-striped" width="100%" id="tbl_productCategory">
                 <thead>
                     <tr>
                         <th>
@@ -33,6 +34,12 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisplayOrder)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Published)
                         </th>
 
                         <th>عملیات</th>
@@ -48,12 +55,12 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-
-
+                            <td>  @Html.DisplayFor(modelItem => item.DisplayOrder)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.Published)</td>
                             <td>
-                                <a class="btn btn-priamry" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
+                                <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
 
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
                             </td>
                         </tr>
                     }
@@ -66,7 +73,12 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Description)
                         </th>
-
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisplayOrder)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Published)
+                        </th>
                         <th>عملیات</th>
                     </tr>
                 </tfoot>
@@ -76,6 +88,7 @@
 
     </div>
 </div>
+
 
 
 @section Scripts{
@@ -89,7 +102,7 @@
 $(document).ready(function () {
 
 
-    $('#tbl_productCategories').dataTable({
+    $('#tbl_productCategory').dataTable({
 
                 "iDisplayLength": 50,
                 dom: 'Bfrtip',
@@ -110,7 +123,7 @@ $(document).ready(function () {
                     "sInfoEmpty": "تهی",
                     "sInfoFiltered": "(فیلتر شده از مجموع _MAX_ مورد)",
                     "sInfoPostFix": "",
-                    "sSearch": " نام گروه محصول  :",
+                    "sSearch": "  نام گروه  :",
                     "sUrl": "",
                     "oPaginate": {
                         "sFirst": "ابتدا",

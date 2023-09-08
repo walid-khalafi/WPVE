@@ -1,32 +1,35 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
+      <Items>
+        <StartupItem ItemId="{61470BE7-C8D7-4B74-A49C-FE5FDAB4CB0A}" ItemName="WPVE.Web" ConfigurationId="https" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
   <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Core/Domain/Catalog/Product.cs">
-    <Files>
-      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductController.cs" Line="25" Column="7" />
-      <File FileName="WPVE.Core/Domain/Catalog/Product.cs" Line="15" Column="33" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/_ViewImports.cshtml" Line="4" Column="33" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Product/Create.cshtml" Line="315" Column="28" NotebookId="1" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/AddPostOrUpdate.cshtml" Line="179" Column="1" NotebookId="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WPVE" expanded="True">
             <Node name="WPVE.Core" expanded="True">
               <Node name="Domain" expanded="True">
+                <Node name="Blogs" expanded="True" />
                 <Node name="Catalog" expanded="True" />
               </Node>
             </Node>
+            <Node name="WPVE.Data" expanded="True" />
             <Node name="WPVE.Web" expanded="True">
               <Node name="Areas" expanded="True">
                 <Node name="Admin" expanded="True">
                   <Node name="Controllers" expanded="True" />
                   <Node name="Views" expanded="True">
                     <Node name="Blog" expanded="True" />
-                    <Node name="Dashboard" expanded="True" />
+                    <Node name="BlogCategory" expanded="True" />
+                    <Node name="Manufacturer" expanded="True" />
                     <Node name="Product" expanded="True" />
+                    <Node name="ProductCategory" expanded="True" />
+                    <Node name="ProductTag" expanded="True" />
                     <Node name="Shared" expanded="True" />
                   </Node>
                 </Node>
@@ -38,17 +41,12 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <DisabledProjects>
-    <String>WPVE/WPVE.csproj</String>
-  </DisabledProjects>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
-      <Items>
-        <StartupItem ItemId="{61470BE7-C8D7-4B74-A49C-FE5FDAB4CB0A}" ItemName="WPVE.Web" ConfigurationId="https" />
-      </Items>
-    </MultiItemSolutionRunConfiguration>
-  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>WPVE/WPVE.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

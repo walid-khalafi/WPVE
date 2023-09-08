@@ -1,81 +1,62 @@
 @model WPVE.Core.Domain.Catalog.Manufacturer
 
+
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "ویرایش سازنده";
+    ViewData["Parent_Title"] = "محصولات";
+    ViewData["parent_menu"] = "navigationProducts";
 }
 
-<h1>Edit</h1>
 
-<h4>Manufacturer</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Published" /> @Html.DisplayNameFor(model => model.Published)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Deleted" /> @Html.DisplayNameFor(model => model.Deleted)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="DisplayOrder" class="control-label"></label>
-                <input asp-for="DisplayOrder" class="form-control" />
-                <span asp-validation-for="DisplayOrder" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaKeywords" class="control-label"></label>
-                <input asp-for="MetaKeywords" class="form-control" />
-                <span asp-validation-for="MetaKeywords" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaDescription" class="control-label"></label>
-                <input asp-for="MetaDescription" class="form-control" />
-                <span asp-validation-for="MetaDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaTitle" class="control-label"></label>
-                <input asp-for="MetaTitle" class="form-control" />
-                <span asp-validation-for="MetaTitle" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="CreatedOnUtc" class="control-label"></label>
-                <input asp-for="CreatedOnUtc" class="form-control" />
-                <span asp-validation-for="CreatedOnUtc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedOnUtc" class="control-label"></label>
-                <input asp-for="UpdatedOnUtc" class="form-control" />
-                <span asp-validation-for="UpdatedOnUtc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IPAddress" class="control-label"></label>
-                <input asp-for="IPAddress" class="form-control" />
-                <span asp-validation-for="IPAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+<div class="col-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Published" /> @Html.DisplayNameFor(model => model.Published)
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DisplayOrder" class="control-label"></label>
+                    <input asp-for="DisplayOrder" class="form-control" />
+                    <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MetaTitle" class="control-label"></label>
+                    <input asp-for="MetaTitle" class="form-control" />
+                    <span asp-validation-for="MetaTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MetaKeywords" class="control-label"></label>
+                    <input asp-for="MetaKeywords" class="form-control" />
+                    <span asp-validation-for="MetaKeywords" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MetaDescription" class="control-label"></label>
+                    <input asp-for="MetaDescription" class="form-control" />
+                    <span asp-validation-for="MetaDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="ذخیره" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-primary text-white">بازگشت به لیست</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-

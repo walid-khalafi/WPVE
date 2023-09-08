@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,40 +14,38 @@ using WPVE.Data;
 namespace WPVE.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ProductCategoryController : Controller
     {
+        #region Fields
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private string _user_id;
+        private string _ipAddress;
 
-        public ProductCategoryController(ApplicationDbContext context)
+        #endregion
+
+        #region Ctor
+        public ProductCategoryController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+            _ipAddress = _httpContextAccessor.HttpContext.Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            _user_id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
+        #endregion
 
-        // GET: Admin/ProductCategory
+
+
+        // GET: Admin/Manufacturer
         public async Task<IActionResult> Index()
         {
-              return _context.ProductCategories != null ? 
-                          View(await _context.ProductCategories.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.ProductCategories'  is null.");
+            return _context.ProductCategories != null ?
+                        View(await _context.ProductCategories.Where(x => x.Deleted == false).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Manufacturers'  is null.");
         }
 
-        // GET: Admin/ProductCategory/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.ProductCategories == null)
-            {
-                return NotFound();
-            }
 
-            var productCategory = await _context.ProductCategories
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (productCategory == null)
-            {
-                return NotFound();
-            }
-
-            return View(productCategory);
-        }
 
         // GET: Admin/ProductCategory/Create
         public IActionResult Create()
@@ -57,13 +58,23 @@ namespace WPVE.Web.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description,Published,Deleted,DisplayOrder,MetaKeywords,MetaDescription,MetaTitle,Id,CreatedOnUtc,UpdatedOnUtc,IPAddress")] ProductCategory productCategory)
+        public async Task<IActionResult> Create(ProductCategory productCategory)
         {
-            if (ModelState.IsValid)
+
+            productCategory.Id = Guid.NewGuid().ToString();
+            productCategory.CreatedOnUtc = DateTime.Now;
+            productCategory.IPAddress = _ipAddress;
+            productCategory.Deleted = false;
+
+            _context.Add(productCategory);
+            try
             {
-                _context.Add(productCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             return View(productCategory);
         }
@@ -89,34 +100,29 @@ namespace WPVE.Web.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,Description,Published,Deleted,DisplayOrder,MetaKeywords,MetaDescription,MetaTitle,Id,CreatedOnUtc,UpdatedOnUtc,IPAddress")] ProductCategory productCategory)
+        public async Task<IActionResult> Edit(string id, ProductCategory productCategory)
         {
             if (id != productCategory.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(productCategory);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductCategoryExists(productCategory.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                productCategory.UpdatedOnUtc = DateTime.Now;
+                productCategory.IPAddress = _ipAddress;
+                _context.Update(productCategory);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(productCategory);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductCategoryExists(productCategory.Id))
+                {
+                    return NotFound();
+                }
+
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/ProductCategory/Delete/5
@@ -149,7 +155,7 @@ namespace WPVE.Web.Areas.Admin.Controllers
             var productCategory = await _context.ProductCategories.FindAsync(id);
             if (productCategory != null)
             {
-                _context.ProductCategories.Remove(productCategory);
+                productCategory.Deleted = true;
             }
             
             await _context.SaveChangesAsync();

@@ -35,6 +35,12 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Description)
                         </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisplayOrder)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Published)
+                        </th>
 
                         <th>عملیات</th>
                     </tr>
@@ -49,11 +55,12 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-
+                            <td>  @Html.DisplayFor(modelItem => item.DisplayOrder)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.Published)</td>
                             <td>
-                                <a class="btn btn-priamry text-white" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
+                                <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
 
-                                <a class="btn btn-priamry text-white" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
                             </td>
                         </tr>
                     }
@@ -66,7 +73,12 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Description)
                         </th>
-
+                        <th>
+                            @Html.DisplayNameFor(model => model.DisplayOrder)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Published)
+                        </th>
                         <th>عملیات</th>
                     </tr>
                 </tfoot>
