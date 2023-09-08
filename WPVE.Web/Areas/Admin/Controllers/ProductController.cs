@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WPVE.Core.Domain.Catalog;
 using WPVE.Data;
@@ -45,8 +46,14 @@ namespace WPVE.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var productCategories = await Task.FromResult(_db.ProductCategories.ToList());
+            if (productCategories == null)
+            {
+                productCategories = new List<ProductCategory>();
+            }
+            ViewData["ProductCategories"] = productCategories;
             return View();
         }
        [HttpPost]
@@ -60,7 +67,7 @@ namespace WPVE.Web.Areas.Admin.Controllers
             model.CreatedOnUtc = DateTime.Now;
             model.CreatedByUserID = _user_id;
             model.IPAddress = _ipAddress;
-
+ 
             //upload file
 
             if (file !=null)
