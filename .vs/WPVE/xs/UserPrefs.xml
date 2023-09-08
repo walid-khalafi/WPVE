@@ -1,4 +1,32 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
+  <DisabledProjects>
+    <String>WPVE/WPVE.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Core/Domain/Catalog/ProductCategory.cs">
+    <Files>
+      <File FileName="WPVE.Web/Areas/Admin/Views/ProductTag/Index.cshtml" Line="47" Column="1" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/ProductTag/Create.cshtml" Line="23" Column="61" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductTagController.cs" Line="74" Column="1" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductCategoryController.cs" Line="20" Column="6" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/ProductTag/Delete.cshtml" Line="34" Column="5" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/ProductCategory/Create.cshtml" Line="5" Column="1" />
+      <File FileName="WPVE.Core/Domain/Catalog/ProductCategory.cs" Line="55" Column="46" />
+      <File FileName="WPVE.Core/Domain/Catalog/Manufacturer.cs" Line="59" Column="46" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WPVE" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
       <Items>
@@ -6,47 +34,4 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="WPVE" expanded="True">
-            <Node name="WPVE.Core" expanded="True">
-              <Node name="Domain" expanded="True">
-                <Node name="Blogs" expanded="True" />
-                <Node name="Catalog" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="WPVE.Data" expanded="True" />
-            <Node name="WPVE.Web" expanded="True">
-              <Node name="Areas" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="Controllers" expanded="True" />
-                  <Node name="Views" expanded="True">
-                    <Node name="Blog" expanded="True" />
-                    <Node name="BlogCategory" expanded="True" />
-                    <Node name="Manufacturer" expanded="True" />
-                    <Node name="Product" expanded="True" />
-                    <Node name="ProductCategory" expanded="True" />
-                    <Node name="ProductTag" expanded="True" />
-                    <Node name="Shared" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>WPVE/WPVE.csproj</String>
-  </DisabledProjects>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
