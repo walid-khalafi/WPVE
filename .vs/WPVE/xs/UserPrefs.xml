@@ -3,13 +3,14 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/wwwroot/assets/css/app.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Views/Product/Index.cshtml">
     <Files>
-      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductController.cs" Line="56" Column="63" />
-      <File FileName="WPVE.Core/Domain/Catalog/ProductCategory.cs" Line="17" Column="27" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Product/Create.cshtml" Line="22" Column="1" />
-      <File FileName="WPVE.Web/wwwroot/assets/css/app.css" Line="11631" Column="2" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Shared/_AdminLayout.cshtml" Line="44" Column="50" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductController.cs" Line="164" Column="1" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/BlogController.cs" Line="82" Column="16" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/Product/Index.cshtml" Line="80" Column="70" />
+      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/Index.cshtml" Line="114" Column="21" />
+      <File FileName="WPVE.Web/Areas/Admin/Models/ProductViewModels/ProductIndexViewModel.cs" Line="48" Column="44" />
+      <File FileName="WPVE.Core/Domain/Catalog/Product.cs" Line="139" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,7 +25,12 @@
               <Node name="Areas" expanded="True">
                 <Node name="Admin" expanded="True">
                   <Node name="Controllers" expanded="True" />
+                  <Node name="Models" expanded="True">
+                    <Node name="BlogViewModel" expanded="True" />
+                    <Node name="ProductViewModels" expanded="True" />
+                  </Node>
                   <Node name="Views" expanded="True">
+                    <Node name="Blog" expanded="True" />
                     <Node name="Product" expanded="True" />
                     <Node name="Shared" expanded="True" />
                   </Node>
@@ -48,9 +54,9 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
   <DisabledProjects>
     <String>WPVE/WPVE.csproj</String>
   </DisabledProjects>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
