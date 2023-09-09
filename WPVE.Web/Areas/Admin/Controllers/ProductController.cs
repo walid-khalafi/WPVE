@@ -48,12 +48,19 @@ namespace WPVE.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var productCategories = await Task.FromResult(_db.ProductCategories.ToList());
+            var productCategories = await Task.FromResult(_db.ProductCategories.Where(x=>!x.Deleted).ToList());
             if (productCategories == null)
             {
                 productCategories = new List<ProductCategory>();
             }
             ViewData["ProductCategories"] = productCategories;
+
+            var manufacturers = await Task.FromResult(_db.Manufacturers.Where(x=>!x.Deleted).ToList());
+            if (manufacturers == null)
+            {
+                manufacturers = new List<Manufacturer>();
+            }
+            ViewData["ManufacturerId"] = new SelectList(manufacturers, "Id", "Name");
             return View();
         }
        [HttpPost]
