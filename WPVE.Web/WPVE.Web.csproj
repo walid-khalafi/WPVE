@@ -51,6 +51,7 @@
     <None Remove="Areas\Admin\Views\User\" />
     <None Remove="Areas\Admin\Views\Manage\" />
     <None Remove="Areas\Admin\Views\Product\" />
+    <None Remove="Areas\Admin\Models\ProductViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extentions\" />
@@ -69,6 +70,7 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Admin\Views\Manage\" />
     <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="Areas\Admin\Models\ProductViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\svgs\" />

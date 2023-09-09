@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WPVE.Core.Domain.Catalog;
 using WPVE.Data;
+using WPVE.Web.Areas.Admin.Models.BlogViewModel;
+using WPVE.Web.Areas.Admin.Models.ProductViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -44,6 +46,68 @@ namespace WPVE.Web.Areas.Admin.Controllers
         {
             return View();
         }
+
+        [HttpPost("Admin/Product/GetPosts")]
+        public async Task<IActionResult> GetPostsAsync() {
+
+            int start = int.Parse(Request.Form["start"]);
+            int length = int.Parse(Request.Form["length"]);
+            string searchValue = Request.Form["search[value]"];
+            string sortColumnName = Request.Form[$"columns[{Request.Form["order[0][column]"]}][name]"];
+            string sortDirection = Request.Form["order[0][dir]"];
+
+            var products = await Task.FromResult(_db.Products.Select(item => new ProductIndexViewModel
+            {
+                Id = item.Id,
+                Name = item.Name,
+                Price = item.Price,
+                ManufacturerId = item.ManufacturerId,
+                ProductCategories = item.ProductCategories,
+                StockQuantity = item.StockQuantity,
+                 Published = item.Published
+            }));
+
+            var filteredProducts = FilterProducts(products, searchValue);
+            var sortedProducts = SortProducts(filteredProducts, sortColumnName, sortDirection);
+            var pagedPosts = sortedProducts.Skip(start).Take(length);
+
+            int recordsTotal = products.Count();
+            int recordsFilteredTotal = filteredProducts.Count();
+
+            return Json(new
+            {
+                data = pagedPosts,
+                draw = Request.Form["draw"],
+                recordsTotal,
+                recordsFiltered = recordsFilteredTotal
+            });
+        }
+
+        private IEnumerable<ProductIndexViewModel> FilterProducts(IEnumerable<ProductIndexViewModel> products, string searchValue)
+        {
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                string searchLower = searchValue.ToLower();
+                products = products.Where(x => x.Name.ToLower().Contains(searchLower));
+            }
+            return products;
+        }
+
+        private IEnumerable<ProductIndexViewModel> SortProducts(IEnumerable<ProductIndexViewModel> posts, string sortColumnName, string sortDirection)
+        {
+            switch (sortColumnName)
+            {
+                case "Name":
+                    posts = sortDirection == "asc" ? posts.OrderBy(x => x.Name) : posts.OrderByDescending(x => x.Name);
+                    break;
+                case "Price":
+                    posts = sortDirection == "asc" ? posts.OrderBy(x => x.Price) : posts.OrderByDescending(x => x.Price);
+                    break;
+            }
+            return posts;
+        }
+
+
 
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -96,6 +160,7 @@ namespace WPVE.Web.Areas.Admin.Controllers
                     {
 
                         var file_path = Path.Combine(product_attachments_folder_path, formFile.FileName);
+                        model.Pictures += $"{file_path},";
                         string[] allowed_types = {
                             "image/png",
                             "image/jpeg",
@@ -108,6 +173,7 @@ namespace WPVE.Web.Areas.Admin.Controllers
                             using (var stream = new FileStream(file_path, FileMode.Create))
                             {
                                 await formFile.CopyToAsync(stream);
+
                             }
                         }
 

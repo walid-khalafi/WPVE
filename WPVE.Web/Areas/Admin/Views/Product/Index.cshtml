@@ -56,13 +56,37 @@
     <script src="~/lib/DataTables/datatables.min.js"></script>
     <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
 
-    <script type="text/javascript">$(document).ready(function () {
-
+    <script type="text/javascript">
+        $(document).ready(function () {
 
             $('#tbl_products').dataTable({
 
+                serverSide: true,
+                "ajax": {
+                    "url": 'Product/GetPosts',
+                    "type": "POST",
+                    "datatype": "json",
+                },
                 "iDisplayLength": 50,
+                "serverSide": "true",
+                "order": [0, "dsc"],
+                "processing": "true",
+                "scrollY": 400,
+                "scrollX": true,
                 dom: 'Bfrtip',
+                "columns": [
+                    { "data": "name", "name": "name" },
+                    { "data": "price", "name": "price" },
+                    { "data": "stockQuantity", "name": "stockQuantity" },
+                    { "data": "published", "name": "published" },
+
+                    {
+                        data: null, render: function (data, type, row) {
+                            return '<div class="btn-group"><a data-toggle="tooltip" data-placement="top" title="" data-original-title="ویرایش محصول"  href="@Url.Action("Edit", "Product")/' + data.id + '" data-toggle="tooltip" data-original-title="ویرایش" class="btn  btn-primary btn-md  text-white"><i class="ti-pencil"></i></a><a href ="@Url.Action("Delete", "Product")?id=' + data.id + '" data-toggle="tooltip" data-original-title="حذف" class="btn btn-danger  btn-md text-white" > <i class="ti-trash"></i></a></div>';
+                        }
+                    },
+
+                ],
                 buttons: [
 
                     'copyHtml5',
@@ -80,7 +104,7 @@
                     "sInfoEmpty": "تهی",
                     "sInfoFiltered": "(فیلتر شده از مجموع _MAX_ مورد)",
                     "sInfoPostFix": "",
-                    "sSearch": " نام محصول  :",
+                    "sSearch": "عنوان محصول  :",
                     "sUrl": "",
                     "oPaginate": {
                         "sFirst": "ابتدا",
@@ -91,8 +115,8 @@
                     }
                 },
             });
-        });</script>
-
+        });
+    </script>
 
 
 
