@@ -169,7 +169,7 @@ namespace WPVE.Core.Domain.Catalog
         /// Gets or sets the  intro video URL
         /// </summary>
         [Display(Name = "ویدیو معرفی")]
-        public string IntoVideoUrl { get; set; }
+        public string IntroVideoUrl { get; set; }
         /// <summary>
         /// Gets or sets the  main picture URL
         /// </summary>
