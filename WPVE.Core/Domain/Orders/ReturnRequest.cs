@@ -27,7 +27,6 @@ namespace WPVE.Core.Domain.Orders
         /// Gets or sets the reason to return
         /// </summary>
         public string ReasonForReturn { get; set; }
-
         /// <summary>
         /// Gets or sets the return status identifier
         /// </summary>
@@ -36,12 +35,10 @@ namespace WPVE.Core.Domain.Orders
         /// Gets or sets the date and time of entity creation
         /// </summary>
         public DateTime CreatedOnUtc { get; set; }
-
         /// <summary>
         /// Gets or sets the date and time of entity update
         /// </summary>
         public DateTime? UpdatedOnUtc { get; set; }
-
         /// <summary>
         /// Gets or sets the return status
         /// </summary>
