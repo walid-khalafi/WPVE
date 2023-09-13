@@ -1,51 +1,13 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Views/Product/Index.cshtml">
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Areas/Admin/Models/ProductViewModels/ProductIndexViewModel.cs">
     <Files>
-      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductController.cs" Line="164" Column="1" />
-      <File FileName="WPVE.Web/Areas/Admin/Controllers/BlogController.cs" Line="82" Column="16" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Product/Index.cshtml" Line="80" Column="70" />
-      <File FileName="WPVE.Web/Areas/Admin/Views/Blog/Index.cshtml" Line="114" Column="21" />
-      <File FileName="WPVE.Web/Areas/Admin/Models/ProductViewModels/ProductIndexViewModel.cs" Line="48" Column="44" />
-      <File FileName="WPVE.Core/Domain/Catalog/Product.cs" Line="139" Column="1" />
+      <File FileName="WPVE.Web/Areas/Admin/Controllers/ProductController.cs" />
+      <File FileName="WPVE.Web/Areas/Admin/Models/ProductViewModels/ProductIndexViewModel.cs" Line="36" Column="39" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="WPVE" expanded="True">
-            <Node name="WPVE.Core" expanded="True">
-              <Node name="Domain" expanded="True">
-                <Node name="Catalog" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="WPVE.Web" expanded="True">
-              <Node name="Areas" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="Controllers" expanded="True" />
-                  <Node name="Models" expanded="True">
-                    <Node name="BlogViewModel" expanded="True" />
-                    <Node name="ProductViewModels" expanded="True" />
-                  </Node>
-                  <Node name="Views" expanded="True">
-                    <Node name="Blog" expanded="True" />
-                    <Node name="Product" expanded="True" />
-                    <Node name="Shared" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="assets" expanded="True">
-                  <Node name="css" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
@@ -54,9 +16,9 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <DisabledProjects>
     <String>WPVE/WPVE.csproj</String>
   </DisabledProjects>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

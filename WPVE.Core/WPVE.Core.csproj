@@ -11,12 +11,14 @@
     <None Remove="Domain\Blogs\" />
     <None Remove="Domain\Users\" />
     <None Remove="Domain\Catalog\" />
+    <None Remove="Domain\Sales\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Domain\Blogs\" />
     <Folder Include="Domain\Users\" />
     <Folder Include="Domain\Catalog\" />
+    <Folder Include="Domain\Sales\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
