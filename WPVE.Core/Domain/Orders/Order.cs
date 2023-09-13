@@ -1,5 +1,5 @@
 ﻿using System;
-namespace WPVE.Core.Domain.Sales
+namespace WPVE.Core.Domain.Orders
 {
     public class Order
     {
