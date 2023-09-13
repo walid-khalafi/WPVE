@@ -1,7 +1,7 @@
 ﻿using System;
 namespace WPVE.Core.Domain.Orders
 {
-    public class Order
+    public class Order : BaseEntity
     {
         public Order()
         {
