@@ -7,12 +7,6 @@ namespace WPVE.Core.Domain.Orders
         {
         }
         /// <summary>
-        /// Gets or sets the order identifier
-        /// </summary>
-        public Guid OrderGuid { get; set; }
-
-
-        /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
         public int CustomerId { get; set; }
