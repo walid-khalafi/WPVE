@@ -11,7 +11,6 @@ namespace WPVE.Core.Domain.Orders
         /// </summary>
         public int CustomerId { get; set; }
 
-
         /// <summary>
         /// Gets or sets the pickup address identifier
         /// </summary>
@@ -28,16 +27,10 @@ namespace WPVE.Core.Domain.Orders
         /// Gets or sets the payment status identifier
         /// </summary>
         public int PaymentStatusId { get; set; }
-
         /// <summary>
         /// Gets or sets the payment method system name
         /// </summary>
         public string PaymentMethodSystemName { get; set; }
-        /// <summary>
-        /// Gets or sets the tax rates
-        /// </summary>
-        public string TaxRates { get; set; }
-
         /// <summary>
         /// Gets or sets the order tax
         /// </summary>
