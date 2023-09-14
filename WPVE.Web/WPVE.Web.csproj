@@ -63,7 +63,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\Dashboard\" />
     <Folder Include="Views\Account\" />
-    <Folder Include="wwwroot\svgs\" />
     <Folder Include="Areas\Admin\Models\ManageViewModels\" />
     <Folder Include="Areas\Admin\Models\BlogViewModel\" />
     <Folder Include="Areas\Admin\Views\Blog\" />
@@ -71,8 +70,9 @@
     <Folder Include="Areas\Admin\Views\Manage\" />
     <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Areas\Admin\Models\ProductViewModels\" />
+    <Folder Include="wwwroot\home\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\svgs\" />
+    <Content Remove="wwwroot\home\" />
   </ItemGroup>
 </Project>

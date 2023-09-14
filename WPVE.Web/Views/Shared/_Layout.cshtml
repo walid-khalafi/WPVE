@@ -2,82 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WPVE.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WPVE.Web.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
+    <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
+    <meta name="author" content="Walid Khalafi" />
+    <meta name="email" content="eng.wkhalafi@gmail.com" />
+    <meta name="website" content="https://github.com/walid-khalafi/WPVE" />
+    <meta name="Version" content="v3.2.1" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="~/home/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons -->
+    <link href="~/home/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/home/unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <!-- Slider -->
+    <link rel="stylesheet" href="~/home/css/tiny-slider.css" />
+    <!-- Main Css -->
+    <link href="~/home/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="~/home/css/colors/default.css" rel="stylesheet" id="color-opt">
 
 </head>
 <body>
 
-
-
-    <main>
-
-
-        <header class="p-3 mb-3 border-bottom">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap" /></svg>
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Loader -->
+    <!-- Navbar STart -->
+    <header id="topnav" class="defaultscroll sticky">
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a class="logo" href="index.html">
+                    <img src="~/home/images/logo-dark.png" height="24" alt="">
+                </a>
+            </div>
+            <div class="buy-button">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Login" asp-controller="Account" target="_blank" class="btn btn-primary">ورود</a>
+                    <a asp-action="Register" asp-controller="Account" target="_blank" class="btn btn-primary">ثبت نام</a>
+                }
+                else
+                {
+                    <a asp-area="Admin" asp-action="Index" asp-controller="Dashboard" target="_blank" class="btn btn-primary">داشبورد</a>
+                }
+            </div><!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </a>
-
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2 link-secondary">Home</a></li>
-                        <li><a asp-action="Privacy" asp-controller="Home" class="nav-link px-2 link-dark">Privacy</a></li>
-                        <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li>
-                        <li><a href="#" class="nav-link px-2 link-dark">Shop</a></li>
-                    </ul>
-                    <div class="col-md-3 text-end">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <div class="dropdown text-end">
-                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                                </a>
-                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                    <li>  <a asp-action="Index" asp-controller="Dashboard" asp-area="Admin" class="btn btn-outline-primary me-2">Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                                </ul>
-                            </div>
-                          
-                        }
-                        else
-                        {
-                            <a asp-action="Login" asp-controller="Account" class="btn btn-outline-primary me-2">Login</a>
-                            <a asp-action="Register" asp-controller="Account" class="btn btn-primary">Register</a>
-                        }
-
-                    </div>
-
+                    <!-- End mobile menu toggle-->
                 </div>
             </div>
-        </header>
 
-        <div class="b-example-divider"></div>
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li><a asp-action="Index" class="sub-menu-item">صفحه اصلی </a></li>
+                    <li><a asp-action="Privacy" class="sub-menu-item"> حریم خصوصی </a></li>
+
+                </ul><!--end navigation menu-->
 
 
-    </main>
+            </div><!--end navigation-->
+        </div><!--end container-->
+    </header><!--end header-->
+    <!-- Navbar End -->
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    @RenderBody()
+
+
+    <!-- Footer Start -->
+    <footer class="footer">
         <div class="container">
-            &copy; 1402 - WPVE.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                    <a href="#" class="logo-footer">
+                        <img src="~/home/images/logo-light.png" height="24" alt="">
+                    </a>
+                    <p class="mt-4">کار با WPVE را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+                    <ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                    </ul><!--end icon-->
+                </div><!--end col-->
+
+                <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <h5 class="text-light footer-head">شرکت </h5>
+                    <ul class="list-unstyled footer-list mt-4">
+                        <li><a href="page-aboutus.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> درباره ما </a></li>
+                        <li><a href="page-services.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> خدمات </a></li>
+                        <li><a href="page-team.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> تیم </a></li>
+                        <li><a href="page-pricing.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> قیمت گذاری </a></li>
+                        <li><a href="page-portfolio-modern.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> پروژه </a></li>
+                        <li><a href="page-jobs.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> مشاغل </a></li>
+                        <li><a href="page-blog-grid.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> وبلاگ </a></li>
+                        <li><a href="auth-cover-login.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> ورود </a></li>
+                    </ul>
+                </div><!--end col-->
+
+                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <h5 class="text-light footer-head">لینک های مفید </h5>
+                    <ul class="list-unstyled footer-list mt-4">
+                        <li><a href="page-terms.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> خدمات سایت </a></li>
+                        <li><a href="page-privacy.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> حریم خصوصی </a></li>
+                        <li><a href="documentation.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> مستند </a></li>
+                        <li><a href="changelog.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> تغییرات </a></li>
+                        <li><a href="components.html" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> اجزاء </a></li>
+                    </ul>
+                </div><!--end col-->
+
+                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <h5 class="text-light footer-head">خبرنامه </h5>
+                    <p class="mt-4">ثبت نام کنید و آخرین نکات را از طریق ایمیل دریافت کنید.</p>
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="foot-subscribe mb-3">
+                                    <label class="form-label">ایمیل خود را بنویسید <span class="text-danger">*</span></label>
+                                    <div class="form-icon position-relative">
+                                        <i data-feather="mail" class="fea icon-sm icons"></i>
+                                        <input type="email" name="email" id="emailsubscribe" class="form-control ps-5 rounded" placeholder="ایمیل شما: " required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-grid">
+                                    <input type="submit" id="submitsubscribe" name="send" class="btn btn-soft-primary" value="خبرنامه">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </footer><!--end footer-->
+    <footer class="footer footer-bar">
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="text-sm-start">
+                        <p class="mb-0">
+                            <script>document.write(new Date().getFullYear())</script>     Copyright © - WPVE.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy"> All rights reserved.</a>
+                        </p>
+                    </div>
+                </div><!--end col-->
+
+                <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <ul class="list-unstyled text-sm-end mb-0">
+                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="~/home/images/payments/american-ex.png" class="avatar avatar-ex-sm" title="آمریکن اکسپرس" alt=""></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="~/home/images/payments/discover.png" class="avatar avatar-ex-sm" title="کشف کردن" alt=""></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="~/home/images/payments/master-card.png" class="avatar avatar-ex-sm" title="مستر کارت" alt=""></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="~/home/images/payments/paypal.png" class="avatar avatar-ex-sm" title="پی پال" alt=""></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="~/home/images/payments/visa.png" class="avatar avatar-ex-sm" title="ویزا" alt=""></a></li>
+                    </ul>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </footer><!--end footer-->
+    <!-- Footer End -->
+    <!-- Back to top -->
+    <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
+    <!-- Back to top -->
+    <!-- Style switcher --> <div id="style-switcher" class="bg-light border p-3 pt-2 pb-2" onclick="toggleSwitcher()">
+        <div>
+            <h6 class="title text-center">رنگ خود را انتخاب کنید </h6>
+            <ul class="pattern">
+                <li class="list-inline-item">
+                    <a class="color1" href="javascript: void(0);" onclick="setColor('default')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color2" href="javascript: void(0);" onclick="setColor('green')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color3" href="javascript: void(0);" onclick="setColor('purple')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color4" href="javascript: void(0);" onclick="setColor('red')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color5" href="javascript: void(0);" onclick="setColor('skyblue')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color6" href="javascript: void(0);" onclick="setColor('skobleoff')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color7" href="javascript: void(0);" onclick="setColor('cyan')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color8" href="javascript: void(0);" onclick="setColor('slateblue')"></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="color9" href="javascript: void(0);" onclick="setColor('yellow')"></a>
+                </li>
+            </ul>
+
+            <h6 class="title text-center pt-3 mb-0 border-top">تنظیمات قالب </h6>
+            <ul class="text-center list-unstyled mb-0">
+                <li class="d-grid"><a href="javascript:void(0)" class=" " onclick="setTheme('style-rtl')"> </a></li>
+                <li class="d-grid"><a href="javascript:void(0)" class=" " onclick="setTheme('style')"> </a></li>
+                <li class="d-grid"><a href="javascript:void(0)" class=" " onclick="setTheme('style-dark-rtl')"> </a></li>
+                <li class="d-grid"><a href="javascript:void(0)" class=" " onclick="setTheme('style-dark')"> </a></li>
+                <li class="d-grid"><a href="javascript:void(0)" class="btn btn-sm btn-block btn-dark dark-version t-dark mt-2" onclick="setTheme('style-dark')">تیره </a></li>
+                <li class="d-grid"><a href="javascript:void(0)" class="btn btn-sm btn-block btn-dark light-version t-light mt-2" onclick="setTheme('style')">روشن </a></li>
+            </ul>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/sidebars.js"></script>
+        <div class="bottom">
+            <a href="javascript: void(0);" class="settings bg-white shadow d-block"><i class="mdi mdi-cog ms-1 mdi-24px position-absolute mdi-spin text-primary"></i></a>
+        </div>
+    </div>
+    <!-- end Style switcher -->
+    <!-- javascript -->
+    <script src="~/home/js/bootstrap.bundle.min.js"></script>
+    <!-- SLIDER -->
+    <script src="~/home/js/tiny-slider.js"></script>
+    <!-- Icons -->
+    <script src="~/home/js/feather.min.js"></script>
+    <!-- Switcher -->
+    <script src="~/home/js/switcher.js"></script>
+    <!-- Main Js -->
+    <script src="~/home/js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
+    <script src="~/home/js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
