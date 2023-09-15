@@ -52,6 +52,7 @@
     <None Remove="Areas\Admin\Views\Manage\" />
     <None Remove="Areas\Admin\Views\Product\" />
     <None Remove="Areas\Admin\Models\ProductViewModels\" />
+    <None Remove="Models\HomeViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extentions\" />
@@ -71,6 +72,7 @@
     <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Areas\Admin\Models\ProductViewModels\" />
     <Folder Include="wwwroot\home\" />
+    <Folder Include="Models\HomeViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\home\" />
