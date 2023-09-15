@@ -1,7 +1,4 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <DisabledProjects>
-    <String>WPVE/WPVE.csproj</String>
-  </DisabledProjects>
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
       <Items>
@@ -9,22 +6,31 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Core/Domain/Orders/ReturnRequest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Views/Home/_LayoutHero.cshtml">
     <Files>
-      <File FileName="WPVE.Core/Domain/Sales/Order.cs" Line="4" Column="36" />
-      <File FileName="WPVE.Core/Domain/Orders/OrderStatus.cs" Line="28" Column="6" />
-      <File FileName="WPVE.Core/Domain/Orders/ReturnRequest.cs" Line="34" Column="21" />
-      <File FileName="WPVE.Core/Domain/Orders/ReturnRequestStatus.cs" Line="26" Column="23" />
+      <File FileName="WPVE.Web/Views/Shared/_Layout.cshtml" Line="103" Column="39" />
+      <File FileName="WPVE.Web/Views/Home/Index.cshtml" Line="5" Column="46" />
+      <File FileName="WPVE.Web/Views/Home/_LayoutHero.cshtml" Line="17" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WPVE">
-            <Node name="WPVE.Core">
-              <Node name="Domain">
-                <Node name="Orders">
-                  <Node name="ReturnRequest.cs" selected="True" />
+            <Node name="WPVE.Web">
+              <Node name="Views">
+                <Node name="Home">
+                  <Node name="_LayoutHero.cshtml" selected="True" />
+                </Node>
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="home" expanded="True">
+                  <Node name="js" expanded="True" />
                 </Node>
               </Node>
             </Node>
@@ -34,8 +40,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <DisabledProjects>
+    <String>WPVE/WPVE.csproj</String>
+  </DisabledProjects>
 </Properties>
