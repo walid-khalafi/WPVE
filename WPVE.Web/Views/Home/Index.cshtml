@@ -2,29 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+@{await Html.RenderPartialAsync("_LayoutHero", new HeroViewModel() { Name = "blog", Picture = "/home/images/illustrator/Startup_SVG.svg", Heading="test",Description ="test desc", Button1Visible =true, Button1Title="contact us" , Button2Title ="about us", Button2Visible =true});}
 
-<!-- Hero Start -->
-<section class="bg-half-170 d-table w-100">
-    <div class="container">
-        <div class="row mt-5 align-items-center">
-            <div class="col-lg-7 col-md-7">
-                <div class="title-heading me-lg-4">
-                    <h1 class="heading mb-3">خلاقیت ما شما است <span class="text-primary">موفقیت اتفاقی نیست</span> </h1>
-                    <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-primary mt-2 me-2"><i class="uil uil-envelope"></i> شروع کنید </a>
-                        <a href="#" class="btn btn-outline-primary mt-2"><i class="uil uil-book-alt"></i> اسناد </a>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                <img src="~/home/images/illustrator/Startup_SVG.svg" alt="">
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-</section><!--end section-->
-<!-- Hero End -->
 <!-- Partners start -->
 <section class="py-4 border-bottom border-top">
     <div class="container">
