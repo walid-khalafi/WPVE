@@ -1,0 +1,1152 @@
+﻿@model HeroViewModel
+@{
+   
+}
+
+@switch (Model.Name)
+{
+    case "default":
+
+        <!-- Hero Start default -->
+        <section class="bg-half-170 d-table w-100">
+            <div class="container">
+                <div class="row mt-5 align-items-center">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="title-heading me-lg-4">
+                            <h1 class="heading mb-3">@Model.Heading</h1>
+                            <p class="para-desc text-muted">@Model.Description</p>
+                            <div class="mt-4">
+                                @if (Model.Button1Visible)
+                                {
+                                    <a href="@Model.Button1Url" class="btn btn-primary mt-2 me-2"><i class="@Model.Button1Icon."></i>  @Model.Button1Title </a>
+                                }
+                                @if (Model.Button2Visible)
+                                {
+
+                                    <a href="@Model.Button2Url" class="btn btn-outline-primary mt-2"><i class="@Model.Button2Icon"></i> @Model.Button2Title </a>
+                                }
+
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <img src="@Model.Picture" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+
+        break;
+    case "videocall":
+
+        <!-- Start Hero videocall -->
+        <section class="bg-half-170 d-table w-100">
+            <div class="container">
+                <div class="row mt-5 align-items-center position-relative" style="z-index: 1;">
+                    <div class="col-lg-6">
+                        <div class="title-heading text-center text-lg-start">
+                            <span class="badge rounded-lg bg-soft-primary">تماس ویدئویی </span>
+                            <h4 class="heading fw-bold mb-3 mt-3">چت با تیم , <br> جلسات مجازی , <br> اشتراک فایل و موارد دیگر...</h4>
+                            <p class="para-desc text-muted mx-auto mx-lg-start mb-0">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-3">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mt-2">مجانی امتحان کنید</a>
+                                <a href="javascript:void(0)" class="btn btn-soft-primary mt-2">یک فیلم زنده بگیرید</a>
+                                <p class="mt-3 mb-0 text-muted">*بدون کارت اعتباری مورد نیاز است</p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-6 mt-4 pt-2 mt-lg-0 pt-lg-0">
+                        <div class="card border-0 shadow rounded ms-lg-4 overflow-hidden">
+                            <div class="d-flex p-2 bg-light justify-content-between align-items-center">
+                                <div>
+                                    <a href="javascript:void(0)" class="text-danger"><i class="mdi mdi-circle"></i></a>
+                                    <a href="javascript:void(0)" class="text-warning"><i class="mdi mdi-circle"></i></a>
+                                    <a href="javascript:void(0)" class="text-success"><i class="mdi mdi-circle"></i></a>
+                                </div>
+
+                                <small class="fw-bold"><i class="mdi mdi-circle-medium text-success"></i> لنـدریــک </small>
+                            </div>
+                            <div class="bg-light px-2 position-relative">
+                                <video class="w-100 rounded" controls autoplay loop>
+                                    <source src="~/home/images/video/call.mp4" type="video/mp4">
+                                </video>
+
+                                <div class="position-absolute top-0 start-0">
+                                    <div class="mt-2 ms-3">
+                                        <span class="badge bg-danger">تماس زنده </span>
+                                        <small class="mb-0 text-white title-dark">4 حضور </small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-2 bg-light">
+                                <p class="text-muted mb-0"><b>یادداشت :</b>این ویدئو فقط برای اهداف نمایشی است .</p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Hero -->
+        break;
+    case "travel":
+
+        <!-- Hero Start -->
+        <section class="bg-half-170 d-table w-100" style="background: url('/home/images/travel/bg.jpg') center center;">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="title-heading mt-4">
+                            <h1 class="display-4 fw-bold text-white title-dark mb-3">تور رزرو <br> به راحتی بدست بیارید</h1>
+                            <p class="para-desc text-white-50">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4">
+                                <a href="javascript:void(0)" class="btn btn-icon btn-pills btn-lg btn-light"><i data-feather="arrow-down" class="icons"></i></a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-5 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="card shadow rounded border-0 ms-lg-5">
+                            <div class="card-body">
+                                <h5 class="card-title">می توانید از اینجا جستجو کنید</h5>
+
+                                <form class="login-form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">مقصد </label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="map-pin" class="fea icon-sm icons"></i>
+                                                    <input type="text" class="form-control ps-5" placeholder="بنویس" name="s" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label"> ورود به سیستم: </label>
+                                                <input name="date" type="text" class="form-control start" placeholder="انتخاب تاریخ  :">
+                                            </div>
+                                        </div><!--end col-->
+
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label"> خروج : </label>
+                                                <input name="date" type="text" class="form-control end" placeholder="انتخاب تاریخ  :">
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">ایمیل شما </label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="mail" class="fea icon-sm icons"></i>
+                                                    <input type="email" class="form-control ps-5" placeholder="ایمیل" name="email" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">تایید میکنم <a href="#" class="text-primary">قوانین سایت لنـدریـک را و تیکت را فعال میکنم</a></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary">اکنون جستجو کنید</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "task-management":
+        <!-- Start Home -->
+        <section class="bg-home d-flex align-items-center bg-animation-left task-management-home" style="height: auto;" id="home">
+            <div class="container position-relative" style="z-index: 1;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
+                        <div class="title-heading margin-top-100">
+                            <h1 class="heading text-white title-dark mb-3">راهی بهتر برای مدیریت برنامه خود</h1>
+                            <p class="para-desc mx-auto text-white-50">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                        </div>
+                        <div class="text-center subcribe-form mt-4 pt-2">
+                            <form>
+                                <div class="mb-0">
+                                    <input type="email" id="email" name="email" class="border rounded-pill" required placeholder="آدرس ایمیل">
+                                    <button type="submit" class="btn btn-pills btn-primary">شروع کنید</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 text-center">
+                                <div class="home-dashboard">
+                                    <img src="~/home/images/task/laptop.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Home -->
+        break;
+    case "studio":
+        <!-- Hero Start -->
+        <section class="bg-half-170 d-table w-100" style="background: url('home/images/3.jpg') center center;" id="home">
+            <div class="container">
+                <div class="row position-relative align-items-center pt-4">
+                    <div class="col-lg-7 offset-lg-5">
+                        <div class="title-heading studio-home rounded bg-white shadow mt-5">
+                            <h1 class="heading mb-3">کار خود را با <span class="text-primary"> لنـدریـک  </span> شروع کنید </h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4">
+                                <a href="page-contact-one.html" class="btn btn-primary mt-2 me-2"><i class="uil uil-phone"></i> شروع کنید </a>
+                                <a href="documentation.html" class="btn btn-outline-primary mt-2"><i class="uil uil-book-alt"></i> اسناد </a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "software":
+        <!-- Hero Start -->
+        <section class="bg-half-260 bg-primary d-table w-100" style="background: url('home/images/software/bg.png') center center;">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row align-items-center position-relative mt-5" style="z-index: 1;">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="title-heading mt-4 text-center text-lg-start">
+                            <h1 class="heading mb-3 title-dark text-white">بهترین نرم افزار برای مانیتور کار شما</h1>
+                            <p class="para-desc text-white-50">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4">
+                                <a href="javascript:void(0)" class="btn btn-light"><i class="uil uil-file-download"></i> اکنون دانلود کنید</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-6 col-md-12 mt-4 pt-2">
+                        <div class="position-relative">
+                            <div class="software_hero">
+                                <img src="home/images/software/software.png" class="img-fluid d-block" alt="">
+                            </div>
+                            <div class="play-icon">
+                                <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn lightbox">
+                                    <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "social-marketing":
+        <!-- Hero Start -->
+        <section class="bg-home d-flex align-items-center bg-light" style="height: auto;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center mt-0 mt-md-5 pt-0 pt-md-5">
+                        <div class="title-heading margin-top-100">
+                            <h1 class="heading mb-4">یک راه حل برای شما <span class="text-primary"> بازاریابی از طریق رسانه های اجتماعی </span></h1>
+                            <p class="para-desc mx-auto text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <ul class="mt-4 list-unstyled mb-0 align-items-center">
+                                <li class="list-inline-item"><a href="page-contact-one.html" class="btn btn-primary me-2"><i class="uil uil-envelope"></i> درخواست دمو</a></li>
+                                <li class="list-inline-item text-muted me-2 h6">یا </li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-primary fw-bold"> رایگان امتحان کنید <i class="uil uil-angle-left-b align-middle"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="home-dashboard">
+                            <img src="~/home/images/social/hero.png" alt="" class="img-fluid mover">
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "single-product":
+        <!-- Hero Start -->
+        <section class="bg-home d-flex align-items-center" style="background: url('home/images/single/bg01.jpg') center center; height: auto;" id="home">
+            <div class="bg-overlay bg-overlay-white"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 text-center mt-0 mt-md-5 pt-0 pt-md-5">
+                        <div class="title-heading margin-top-100">
+                            <h1 class="display-4 fw-bold mb-3">دوربین بدون سرنشین DJI حرفه ای</h1>
+                            <p class="para-desc mx-auto text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="btn btn-icon btn-pills btn-primary m-1 lightbox"><i data-feather="video" class="icons"></i></a><span class="fw-bold text-uppercase small align-middle ms-1">اکنون تماشا کنید </span>
+                            </div>
+                        </div>
+
+                        <div class="home-dashboard">
+                            <img src="~/home/images/single/1.png" alt="" class="img-fluid mover">
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "shop":
+
+        <!-- Hero Start -->
+        <section class="home-slider position-relative">
+            <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="bg-home slider-rtl-2 d-flex align-items-center" style="background:url('/home/images/shop/bg2.jpg') center center;">
+                            <div class="container">
+                                <div class="row align-items-center mt-5">
+                                    <div class="col-lg-7 col-md-7">
+                                        <div class="title-heading mt-4">
+                                            <h1 class="display-4 title-white fw-bold mb-3">لوازم جانبی جدید <br> با مجموعه جدید ما </h1>
+                                            <p class="para-desc text-muted para-dark">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                                            <div class="mt-4">
+                                                <a href="javascript:void(0)" class="btn btn-soft-primary">اکنون بخرید </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="bg-home slider-rtl-1 d-flex align-items-center" style="background:url('/home/images/shop/bg1.jpg') center center;">
+                            <div class="container">
+                                <div class="row align-items-center mt-5">
+                                    <div class="col-lg-7 col-md-7">
+                                        <div class="title-heading mt-4">
+                                            <h1 class="display-4 title-white fw-bold mb-3">هدفون <br> شیائومی </h1>
+                                            <p class="para-desc text-muted para-dark">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                                            <div class="mt-4">
+                                                <a href="javascript:void(0)" class="btn btn-soft-primary">اکنون بخرید </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="bg-home slider-rtl-3 d-flex align-items-center" style="background:url('/home/images/shop/bg3.jpg') center center;">
+                            <div class="container">
+                                <div class="row align-items-center mt-5">
+                                    <div class="col-lg-7 col-md-7">
+                                        <div class="title-heading mt-4">
+                                            <h1 class="display-4 title-white fw-bold mb-3">مبلمان مدرن، <br> و جدید</h1>
+                                            <p class="para-desc text-muted para-dark">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                                            <div class="mt-4">
+                                                <a href="javascript:void(0)" class="btn btn-soft-primary">اکنون بخرید </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">قبلی </span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">بعدی </span>
+                </a>
+            </div>
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "services":
+        <!-- Hero Start -->
+        <section class="bg-half-170 d-table w-100" id="home">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="title-heading mt-4">
+                            <h1 class="heading mb-3">ساخت هرچیزی <br>برای پروژه شما</h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="page-services.html" class="btn btn-primary m-1">Our خدمات </a>
+                                <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="btn btn-icon btn-pills btn-primary m-1 lightbox"><i data-feather="video" class="icons"></i></a><span class="fw-bold text-uppercase small align-middle ms-2">اکنون تماشا کنید </span>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <img src="~/home/images/illustrator/services.svg" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "seo-agency":
+        <!-- Hero Start -->
+        <section class="bg-half-260 bg-light d-table w-100" style="background: url('/home/images/seo/bg.png') center center;">
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="title-heading">
+                            <span class="badge rounded-pill bg-soft-primary"><b>بهترین خدمات جستجوگرها</b></span>
+                            <h4 class="heading mt-2 mb-4">یک بهینه سازی موتور جستجو</h4>
+                            <p class="para-desc mx-auto text-muted mb-0">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-pills btn-primary m-1">شروع کنید </a>
+                                <a href="javascript:void(0)" class="btn btn-pills btn-soft-primary m-1">ادامه مطلب </a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "sass":
+
+        <!-- Hero Start -->
+        <section class="bg-home d-flex align-items-center" style="background: url('/home/images/saas/home-shape.png') center center; height: auto;" id="home">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
+                        <div class="title-heading margin-top-100">
+                            <h1 class="heading mb-3">سریع بسازید ، سریع آزاد شوید.</h1>
+                            <p class="para-desc mx-auto text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="#about" class="btn btn-primary">آزمایش رایگان را شروع کنید <i class="uil uil-angle-left-b"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="home-dashboard">
+                            <img src="~/home/images/saas/home.png" alt="" class="img-fluid">
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "real-estate":
+        <!-- Hero Start -->
+        <section class="bg-half-260 d-table w-100" id="home">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-12">
+                        <div class="title-heading text-center">
+                            <h4 class="display-4 fw-bold text-white title-dark mb-3">خاصیت عالی خود را پیدا کنید</h4>
+                            <p class="para-desc text-white-50 mb-0 mx-auto">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                        </div>
+                    </div>
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "portfolio":
+        <!--  start Hero -->
+        <section class="bg-half-260 d-table w-100" style="background: url('/home/images/work/bg-portfolio.jpg') center center;">
+            <div class="bg-overlay bg-overlay-white"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="title-heading text-center mt-5 pt-4">
+                            <h1 class="display-1 fw-bold mb-3">نمونه کار مینیمال</h1>
+                            <p class="para-desc mx-auto h6">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Hero -->
+
+        <!-- Shape Start -->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!--Shape End-->
+        break;
+    case "personal":
+        <!-- Hero Start -->
+        <section class="bg-home rtl-personal-hero bg-light d-flex align-items-center" style="background:url('/home/images/personal/bg01.png') center center" id="home">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-9">
+                        <div class="title-heading mt-4">
+                            <h1 class="display-3 fw-bold mb-3">من اینجا هستم <br> <span class="text-primary typewrite" data-period="2000" data-type='[ "کالوین لورس", "UI/طراحان تجربه کاربری", "توسعه وب" ]'> <span class="wrap"></span> </span> </h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="#portfolio" class="btn btn-primary mt-2 me-2"><i class="uil uil-camera"></i> نمایش نمونه کار </a>
+                                <a href="#contact" class="btn btn-outline-primary mt-2"><i class="uil uil-cloud-download"></i> من هستم</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "online-learning":
+        <!-- Hero Start -->
+        <section class="section pt-5 pb-0 mt-4">
+            <div class="container-fluid mt-md-1 px-0 px-md-3">
+                <div class="rounded bg-light py-5 px-3 px-sm-0">
+                    <div class="row">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 col-md-6 col-12">
+                                    <div class="title-heading me-lg-4">
+                                        <div class="alert alert-primary alert-pills shadow" role="alert">
+                                            <span class="content"> آیا آماده یادگیری آنلاین هستید؟</span>
+                                        </div>
+
+                                        <h1 class="heading mb-3">آموزش آنلاین را شروع کنید <br> همراه با <span class="text-primary">:لنـدریـک </span></h1>
+                                        <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                                        <div class="subcribe-form mt-4 pt-2">
+                                            <form class="m-0">
+                                                <div class="">
+                                                    <input type="text" id="course" name="name" class="rounded" placeholder="جستجوی دوره ">
+                                                    <button type="submit" class="btn btn-primary">جستجو  <i data-feather="search" class="fea icon-sm"></i></button>
+                                                </div>
+                                            </form><!--end form-->
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+
+                                <div class="col-lg-5 col-md-6 col-12 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                                    <div class="position-relative">
+                                        <img src="~/home/images/course/online/hero.jpg" class="rounded img-fluid mx-auto d-block" alt="">
+                                        <div class="play-icon">
+                                            <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn lightbox">
+                                                <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </div><!--end container-->
+                    </div><!--end row-->
+                </div><!--end div-->
+            </div><!--end container fluid-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "marketing":
+        <!-- Hero Start -->
+        <section class="bg-marketing d-table w-100" style="background: url('/home/images/marketing/marketing-shape.png')" id="home">
+            <div class="container">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-7 col-md-7 text-center">
+                        <img src="~/home/images/marketing/marketing.png" class="img-fluid" style="max-height: 400px" alt="">
+
+                        <div class="title-heading mt-0 mt-md-5 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                            <h1 class="heading mb-3">بازاریابی از طریق رسانه های اجتماعی بهترین است</h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-primary mt-2 me-2">شروع کنید </a>
+                                <a href="page-contact-one.html" class="btn btn-outline-primary mt-2"><i class="mdi mdi-phone"></i> تماس با ما</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "landing-one":
+
+        <!-- Hero Start -->
+        <section class="bg-half-260 pb-lg-0 pb-md-4 bg-primary d-table w-100">
+            <div class="bg-overlay bg-black" style="opacity: 0.8;"></div>
+            <div class="container">
+                <div class="row position-relative" style="z-index: 1;">
+                    <div class="col-md-7 col-12 mt-lg-5">
+                        <div class="title-heading">
+                            <h1 class="heading text-white title-dark mb-4">مخاطبان خود را بسازید <br> و فروش بیشتر</h1>
+                            <p class="para-desc text-white-50">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-primary m-1">شروع کنید </a>
+                                <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="btn btn-icon btn-pills btn-primary m-1 lightbox"><i data-feather="video" class="icons"></i></a><span class="fw-bold text-uppercase text-white-50 small align-middle ms-2">اکنون تماشا کنید </span>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-md-5 col-12 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="shape-before">
+                            <div class="carousel-cell"><img src="~/home/images/landing/2.jpg" class="img-fluid rounded-md" alt=""></div>
+                            <img src="images/shapes/shape1.png" class="img-fluid shape-img" alt="">
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "landing-two":
+        <!-- Hero Start -->
+        <section class="bg-half-170 d-table w-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="title-heading mt-4">
+                            <h1 class="display-4 fw-bold mb-3">لندینگ حرفه ای <br> برای ساخت انواع سایت</h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                        </div>
+
+                        <div class="subcribe-form mt-4 pt-2">
+                            <form>
+                                <input type="email" id="email" name="email" class="border bg-white rounded-pill" required placeholder="آدرس ایمیل">
+                                <button type="submit" class="btn btn-pills btn-primary">شروع کنید</button>
+                            </form><!--end form-->
+                        </div>
+
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">تایید میکنم <a href="#" class="text-primary">قوانین سایت لنـدریـک را و تیکت را فعال میکنم</a></label>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-md-6">
+                        <img src="~/home/images/illustrator/Creativity-bro.svg" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-light">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "landing-three":
+        <!-- Hero Start -->
+        <section class="bg-half-260 bg-primary d-table w-100" style="background: url('/home/images/bg.png') center;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="title-heading">
+                            <h1 class="heading text-white title-dark mb-4">تجزیه و تحلیل قدرتمند <br> با ابزار عالی برای شما</h1>
+                            <p class="para-desc mx-auto text-white-50">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-light"><i class="uil uil-envelope align-middle"></i> شروع کنید </a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "landing-four":
+        <!-- Start Hero -->
+        <section class="bg-half-170 bg-light d-table w-100" style="background: url('/home/images/real/build.png') bottom no-repeat;">
+            <div class="container">
+                <div class="row align-items-center mt-5">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="title-heading">
+                            <span class="badge rounded-pill bg-soft-success">لندینگ چهار</span>
+                            <h4 class="heading my-3">تجربه , <br>تخصص ، مشاوره</h4>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-primary m-1">کاووش بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="card shadow rounded border-0 ms-lg-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">30 روز آزمایش رایگان دریافت کنید</h5>
+
+                                <form class="login-form mt-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">نام اصلی  <span class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="user" class="fea icon-sm icons"></i>
+                                                    <input type="text" class="form-control ps-5" placeholder="نام اصلی " name="s" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">ایمیل شما <span class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="mail" class="fea icon-sm icons"></i>
+                                                    <input type="email" class="form-control ps-5" placeholder="ایمیل" name="email" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">رمز عبور  <span class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="key" class="fea icon-sm icons"></i>
+                                                    <input type="password" class="form-control ps-5" placeholder="رمز عبور " required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        تایید میکنم <a href="#" class="text-primary">قوانین سایت لنـدریـک را و تیکت را فعال میکنم</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary">ثبت نام </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!--end section-->
+        <!-- End Hero -->
+        break;
+    case "integration":
+        <!-- Hero Start -->
+        <section class="bg-home bg-primary d-flex align-items-center" style="background: url('/home/images/integration/bg.png') center center; height: auto;" id="home">
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
+                        <div class="title-heading">
+                            <span class="badge rounded-pill bg-success">ادغام </span>
+                            <h4 class="heading text-white title-dark my-3">آینده نیز هست <br> <b>جالب هست</b> و بودن <b> قابل پیش بینی است</b>.</h4>
+                            <p class="para-desc mx-auto text-white-50">در مورد همه چیز ، از یادگیری ماشین و پرداخت های جهانی گرفته تا مقیاس بندی تیم خود ، مقاله را کاوش و ادامه دهید.</p>
+                        </div>
+
+                        <div class="text-center subcribe-form mt-4 pt-2">
+                            <form>
+                                <input type="url" id="url" class="border bg-white rounded-lg" style="opacity: 0.85;" required placeholder="https://www.rtl-theme.com/author/tn_plugin/">
+                                <button type="submit" class="btn btn-pills btn-primary">شروع کنید</button>
+                            </form><!--end form-->
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 col-md-10">
+                                <div class="home-dashboard">
+                                    <img src="/home/images/integration/hero.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <div class="position-relative">
+            <div class="shape integration-hero overflow-hidden text-light"></div>
+        </div>
+        <!-- Hero End -->
+        break;
+    case "hospital":
+        <!-- Hero Start -->
+        <section class="bg-half-170 d-table w-100 home-wrapper overflow-hidden">
+            <div class="container">
+                <div class="row mt-5 align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="title-heading">
+                            <span class="badge rounded-pill bg-soft-primary"><b>پزشکی </b></span>
+                            <h4 class="heading my-3">ما مراقبت می کنیم <br> از شما <span class="text-primary">برای سلامتی شما</span></h4>
+                            <p class="para-desc text-muted mb-0">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+
+                            <div class="mt-3">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mt-2">پیدا کردن دکترها </a>
+                                <a href="javascript:void(0)" class="btn btn-soft-primary mt-2">قرار ملاقات را رزرو کنید</a>
+                            </div>
+
+                            <p class="text-muted mb-0 mt-3">حساب کاربری ندارید؟ <a href="javascript:void(0)" class="text-primary ms-2 h6 mb-0">ثبت نام  <i data-feather="arrow-left" class="fea icon-sm"></i></a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="ms-lg-4">
+                            <img src="~/home/images/illustrator/doctors-cuate.svg" class="img-fluid" alt="">
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+        break;
+    case "freelancer":
+        <!-- Start Hero -->
+        <section class="bg-half-170 pb-0 bg-light d-table w-100 overflow-hidden" style="background: url('/home/images/shapes/shape2.png') top; z-index: 0;">
+            <div class="container">
+                <div class="row align-items-center mt-5 mt-sm-0">
+                    <div class="col-md-6">
+                        <div class="title-heading text-center text-md-start">
+                            <span class="badge rounded-pill bg-soft-primary">فریلنسری </span>
+                            <h4 class="heading mb-3 mt-2">مستقل خود را رشد دهید <span class="fw-bold"> کسب و کار برای شماست </span></h4>
+                            <p class="text-muted mb-0 para-dark para-desc mx-auto ms-md-auto">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+
+                            <div class="mt-4">
+                                <a href="javascript:void(0)" class="btn btn-primary">ثبت نام کنید و رشد را شروع کنید</a>
+                                <p class="text-muted mt-1 mb-0">*بدون کارت اعتباری مورد نیاز است</p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="freelance-hero position-relative">
+                            <div class="bg-shape position-relative">
+                                <img src="/home/images/freelancer/freelancer.png" class="mx-auto d-block img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Hero -->
+        break;
+    case "enterprise":
+        <!-- Hero Start -->
+        <section class="bg-half-260 bg-primary d-table w-100" style="background: url('/home/images/enterprise.png') center center;">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title-heading text-center mt-4">
+                            <h1 class="display-4 title-dark fw-bold text-white mb-3">شروع به راه قوی</h1>
+                            <p class="para-desc mx-auto text-white-50">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-primary"><i class="uil uil-envelope"></i> شروع کنید </a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+
+        <!-- Shape Start -->
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!--Shape End-->
+        break;
+    case "digital-agency":
+        <!-- Hero Start -->
+        <section class="bg-half-260 d-table w-100" style="background: url('/home/images/digital/home-bg.png') center center" id="home">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="title-heading mt-4">
+                            <div class="alert alert-light alert-pills shadow" role="alert">
+                                <span class="badge rounded-pill bg-danger me-1">ورژن 3.1.1 </span>
+                                <span class="content"> ساخته شده برای <span class="text-primary">همه ی مشاغل </span> شما به لنـدریــک نیاز دارید..</span>
+                            </div>
+                            <h1 class="heading mb-3"> <span class="text-primary">دیجیتال مارکتینگ </span> همراه با <br> سئوی سایت</h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-pills btn-primary m-1">شروع کنید </a>
+                                <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="btn btn-icon btn-pills btn-primary m-1 lightbox"><i data-feather="video" class="icons"></i></a><span class="fw-bold text-uppercase small align-middle ms-1">اکنون تماشا کنید </span>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-6 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <img src="~/home/images/digital/seo.gif" class="img-fluid" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+
+        break;
+    case "developer":
+        <!-- Hero Start -->
+        <section class="bg-half bg-light d-table w-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-12">
+                        <div class="title-heading">
+                            <span class="badge rounded-pill bg-soft-primary">توسعه </span>
+                            <h1 class="fw-bold mt-2 mb-3">ترکیب کامل با <br> بهترین سایت ساز دنیا</h1>
+                            <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                            <div class="mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2">شروع کنید </a>
+                                <a href="javascript:void(0)" class="btn btn-outline-primary">اسناد </a>
+                            </div>
+                            <p class="text-muted mb-0 mt-3">نسخه فعلی: ورژن : 3.1.1</p>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <img src="~/home/images/digital/about.png" class="img-fluid d-block mx-auto" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        break;
+    case "crypto":
+        <!-- Start Hero -->
+        <section class="bg-half-170 d-table w-100" data-jarallax='{"speed": 0.5}' style="background: url('/home/images/crypto/crypto.png') top;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 mt-5 pt-md-5">
+                        <div class="title-heading text-center">
+                            <h4 class="heading text-white title-dark mb-4">در عرض چند دقیقه ارز دیجیتالی را بخرید و بفروشید</h4>
+                            <p class="text-light para-dark para-desc mx-auto">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+
+                            <div class="subcribe-form mt-4 pt-2">
+                                <form>
+                                    <div class="mb-2">
+                                        <input class="rounded-pill" placeholder="آدرس ایمیل / شماره تلفن">
+                                        <button type="submit" class="btn btn-pills btn-primary">اکنون ثبت نام کنید</button>
+                                    </div>
+                                </form><!--end form-->
+                            </div><!--end مشترک شدن فرم-->
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Hero -->
+
+        break;
+    case "coworking":
+        <!-- Hero Start -->
+        <section class="home-slider position-relative">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="bg-home d-flex align-items-center" style="background: url('/home/images/coworking/bg01.jpg') center center;">
+                            <div class="bg-overlay"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-12 text-center">
+                                        <div class="title-heading mt-4">
+                                            <h6 class="text-light para-dark animated fadeInDownBig animation-delay-1">دفاتر شخصی و فضای کار مشترک برای <span class="text-success">98000 تومان</span></h6>
+                                            <h1 class="heading mb-3 text-white title-dark animated fadeInUpBig animation-delay-3">فضای همکاری برای موفقیت</h1>
+                                            <p class="para-desc text-light para-dark mx-auto animated fadeInUpBig animation-delay-7">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                                            <div class="mt-4 pt-2 animated fadeInUpBig animation-delay-11">
+                                                <a href="javascript:void(0)" class="btn btn-primary mt-2"><i class="uil uil-envelope"></i> شروع کنید </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+                        </div><!--end slide-->
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="bg-home d-flex align-items-center" style="background: url('/home/images/coworking/bg02.jpg') center center;">
+                            <div class="bg-overlay"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-12 text-center">
+                                        <div class="title-heading mt-4">
+                                            <h6 class="text-light para-dark animated fadeInDownBig animation-delay-1">فضای همکاری  بهترین نوع کار در شهر برای موفقیت است</h6>
+                                            <h1 class="heading mb-3 text-white title-dark animated fadeInUpBig animation-delay-3">فضای اداری در ویتنام</h1>
+                                            <p class="para-desc mx-auto text-light para-dark animated fadeInUpBig animation-delay-7">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+
+                                            <div class="text-center subcribe-form mt-4 pt-2 animated fadeInUpBig animation-delay-11">
+                                                <form>
+                                                    <input type="email" id="email" name="email" class="rounded" placeholder="E-mail">
+                                                    <button type="submit" class="btn btn-primary">فضای کتاب</button>
+                                                </form><!--end form-->
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+                        </div><!--end slide-->
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="bg-home d-flex align-items-center" style="background: url('/home/images/coworking/bg03.jpg') center center;">
+                            <div class="bg-overlay"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-12 text-center">
+                                        <div class="title-heading mt-4">
+                                            <h6 class="text-light para-dark animated fadeInDownBig animation-delay-1">فضای ما برای شما</h6>
+                                            <h1 class="heading mb-3 text-white title-dark animated fadeInUpBig animation-delay-3">یک روز دفتر خود را داشته باشید</h1>
+                                            <p class="para-desc mx-auto text-light para-dark animated fadeInUpBig animation-delay-7">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت صفحه بوت استرپ v5 html تبدیل محور بهره مند شوید.</p>
+                                            <div class="mt-4 pt-2 animated fadeInUpBig animation-delay-11">
+                                                <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="btn btn-icon btn-pills btn-primary m-1 lightbox"><i data-feather="video" class="icons"></i></a><span class="fw-bold text-uppercase small text-light title-dark align-middle ms-1">اکنون تماشا کنید </span>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+                        </div><!--end slide-->
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">قبلی </span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">بعدی </span>
+                </a>
+            </div>
+        </section><!--end section-->
+        <!-- Hero End -->
+
+        break;
+    case "blog":
+        <!-- Hero Start -->
+        <section class="home-slider position-relative mt-5">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item mt-4 active" data-bs-interval="3000">
+                        <div class="bg-half-170" style="background: url('/home/images/blog/bg1.jpg') center center;">
+                            <div class="bg-overlay"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="title-heading text-center">
+                                            <h2 class="text-white title-dark mb-3">سفر آخر هفته </h2>
+                                            <ul class="list-unstyled">
+                                                <li class="list-inline-item small user text-white-50 me-2"><i class="uil uil-user text-white title-dark"></i> کالوین لورس</li>
+                                                <li class="list-inline-item small date text-white-50"><i class="uil uil-calendar-alt text-white title-dark"></i> اردیبهشت 1400</li>
+                                            </ul>
+                                            <p class="para-desc mx-auto text-white-50 mb-0">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+                                            <div class="mt-4">
+                                                <a href="javascript:void(0)" class="btn btn-primary">ادامه مطلب  </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div>
+                        </div><!--end slide-->
+                    </div>
+
+                    <div class="carousel-item mt-4" data-bs-interval="3000">
+                        <div class="bg-half-170" style="background: url('/home/images/blog/bg2.jpg') center center;">
+                            <div class="bg-overlay"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="title-heading text-center">
+                                            <h2 class="text-white title-dark mb-3">ملاقات کسب و کار</h2>
+                                            <ul class="list-unstyled">
+                                                <li class="list-inline-item small user text-white-50 me-2"><i class="uil uil-user text-white title-dark"></i> کالوین لورس</li>
+                                                <li class="list-inline-item small date text-white-50"><i class="uil uil-calendar-alt text-white title-dark"></i> اردیبهشت 1400</li>
+                                            </ul>
+                                            <p class="para-desc mx-auto text-white-50 mb-0">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+                                            <div class="mt-4">
+                                                <a href="javascript:void(0)" class="btn btn-primary">ادامه مطلب  </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div>
+                        </div><!--end slide-->
+                    </div>
+
+                    <div class="carousel-item mt-4" data-bs-interval="3000">
+                        <div class="bg-half-170" style="background: url('/home/images/blog/bg3.jpg') center center;">
+                            <div class="bg-overlay"></div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="title-heading text-center">
+                                            <h2 class="text-white title-dark mb-3">خوشمزه و ارگانیک</h2>
+                                            <ul class="list-unstyled">
+                                                <li class="list-inline-item small user text-white-50 me-2"><i class="uil uil-user text-white title-dark"></i> کالوین لورس</li>
+                                                <li class="list-inline-item small date text-white-50"><i class="uil uil-calendar-alt text-white title-dark"></i> اردیبهشت 1400</li>
+                                            </ul>
+                                            <p class="para-desc mx-auto text-white-50 mb-0">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+                                            <div class="mt-4">
+                                                <a href="javascript:void(0)" class="btn btn-primary">ادامه مطلب  </a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div>
+                        </div><!--end slide-->
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">قبلی </span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">بعدی </span>
+                </a>
+            </div>
+        </section><!--end section-->
+        <!-- Hero End -->
+
+        break;
+}
