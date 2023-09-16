@@ -13,17 +13,17 @@
                 <div class="row mt-5 align-items-center">
                     <div class="col-lg-7 col-md-7">
                         <div class="title-heading me-lg-4">
-                            <h1 class="heading mb-3">@Model.Heading</h1>
-                            <p class="para-desc text-muted">@Model.Description</p>
+                            <h1 class="heading mb-3">@Model.DefaultHero.Heading</h1>
+                            <p class="para-desc text-muted">@Model.DefaultHero.Description</p>
                             <div class="mt-4">
-                                @if (Model.Button1Visible)
+                                @if (Model.DefaultHero.Button1Visible)
                                 {
-                                    <a href="@Model.Button1Url" class="btn btn-primary mt-2 me-2"><i class="@Model.Button1Icon."></i>  @Model.Button1Title </a>
+                                    <a href="@Model.DefaultHero.Button1Url" class="btn btn-primary mt-2 me-2"><i class="@Model.DefaultHero.Button1Icon."></i>  @Model.DefaultHero.Button1Title </a>
                                 }
-                                @if (Model.Button2Visible)
+                                @if (Model.DefaultHero.Button2Visible)
                                 {
 
-                                    <a href="@Model.Button2Url" class="btn btn-outline-primary mt-2"><i class="@Model.Button2Icon"></i> @Model.Button2Title </a>
+                                    <a href="@Model.DefaultHero.Button2Url" class="btn btn-outline-primary mt-2"><i class="@Model.DefaultHero.Button2Icon"></i> @Model.DefaultHero.Button2Title </a>
                                 }
 
                             </div>
@@ -31,7 +31,7 @@
                     </div><!--end col-->
 
                     <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                        <img src="@Model.Picture" alt="">
+                        <img src="@Model.DefaultHero.Picture" alt="">
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
