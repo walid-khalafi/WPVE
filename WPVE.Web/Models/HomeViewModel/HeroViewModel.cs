@@ -10,6 +10,11 @@ namespace WPVE.Web.Models.HomeViewModel
         /// Get or set Hero Name
         /// </summary>
         public string Name { get; set; }
+        public DefaultHero DefaultHero { get; set; }
+    }
+
+    public class DefaultHero {
+
         /// <summary>
         /// Get or set Heading
         /// </summary>
@@ -54,6 +59,7 @@ namespace WPVE.Web.Models.HomeViewModel
         ///   ///  Get or set button 2 url 
         /// </summary>
         public string Button2Url { get; set; }
+
     }
 }
 
