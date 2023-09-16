@@ -1,34 +1,7 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <DisabledProjects>
     <String>WPVE/WPVE.csproj</String>
   </DisabledProjects>
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Views/Home/_LayoutHero.cshtml">
-    <Files>
-      <File FileName="WPVE.Web/Views/Shared/_Layout.cshtml" Line="103" Column="39" />
-      <File FileName="WPVE.Web/Views/Home/Index.cshtml" Line="5" Column="82" />
-      <File FileName="WPVE.Web/Views/Home/_LayoutHero.cshtml" Line="3" Column="4" />
-      <File FileName="WPVE.Web/Models/HomeViewModel/HeroViewModel.cs" Line="22" Column="88" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="WPVE" expanded="True">
-            <Node name="WPVE.Web" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="HomeViewModel" expanded="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
       <Items>
@@ -36,7 +9,16 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Models/HomeViewModel/HeroViewModel.cs">
+    <Files>
+      <File FileName="WPVE.Web/Views/Home/Index.cshtml" Line="5" Column="87" />
+      <File FileName="WPVE.Web/Views/Home/_LayoutHero.cshtml" Line="1065" Column="15" />
+      <File FileName="WPVE.Web/Models/HomeViewModel/HeroViewModel.cs" Line="46" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
