@@ -7,16 +7,22 @@
     ViewData["parent_menu"] = "navigationProducts";
 }
 
-<!-- DataTable -->
-<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
 
-<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<!-- DataTable -->
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.css" type="text/css">
+
+<link href="~/admin/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 <style>
     div.dataTables_filter {
         float: right;
     }
-    td,th{
-        text-align:center
+
+    div.dataTables_filter {
+        float: right;
+    }
+
+    td, th {
+        text-align: center
     }
 </style>
 <a class="btn btn-primary text-white" asp-area="Admin" asp-controller="Product" asp-action="Create"><i class="fa fa-plus"></i> افزودن محصول جدید</a>
@@ -53,9 +59,9 @@
 
 
     <!-- DataTable -->
-    <script src="~/lib/DataTables/datatables.min.js"></script>
-    <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
-
+    <script src="~/admin/DataTables/datatables.min.js"></script>
+    <script src="~/admin/DataTables/Buttons-2.4.2/js/buttons.dataTables.min.js"></script>
+    <script src="~/admin/DataTables/pdfmake-0.2.7/pdfmake.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 

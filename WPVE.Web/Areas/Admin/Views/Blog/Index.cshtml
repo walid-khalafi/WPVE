@@ -10,12 +10,12 @@
 
 
 <!-- DataTable -->
-<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.css" type="text/css">
 
-<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="~/admin/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 <style>
     div.dataTables_filter {
-        float:right;
+        float: right;
     }
 </style>
 <div class="card">
@@ -46,8 +46,9 @@
 
 @section Scripts{
     <!-- DataTable -->
-    <script src="~/lib/DataTables/datatables.min.js"></script>
-    <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
+    <script src="~/admin/DataTables/datatables.min.js"></script>
+    <script src="~/admin/DataTables/Buttons-2.4.2/js/buttons.dataTables.min.js"></script>
+    <script src="~/admin/DataTables/pdfmake-0.2.7/pdfmake.js"></script>
 
     <script type="text/javascript">$(document).ready(function () {
 
@@ -69,8 +70,8 @@
                 dom: 'Bfrtip',
                 "columns": [
                     { "data": "title", "name": "title" },
-    
-  
+
+
                     {
                         data: null, render: function (data, type, row) {
                             return '<div class="btn-group"><a data-toggle="tooltip" data-placement="top" title="" data-original-title="ویرایش پست"  href="@Url.Action("AddPostOrUpdate", "Blog")/' + data.id + '" data-toggle="tooltip" data-original-title="ویرایش" class="btn  btn-primary btn-md  text-white"><i class="ti-pencil"></i></a><a href ="@Url.Action("Delete", "Blog")?id=' + data.id  + '" data-toggle="tooltip" data-original-title="حذف" class="btn btn-danger  btn-md text-white" > <i class="ti-trash"></i></a></div>';

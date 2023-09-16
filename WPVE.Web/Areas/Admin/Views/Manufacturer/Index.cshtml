@@ -6,9 +6,9 @@
     ViewData["parent_menu"] = "navigationProducts";
 }
 <!-- DataTable -->
-<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.css" type="text/css">
+<link rel="stylesheet" href="~/admin/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.css" type="text/css">
 
-<link href="~/lib/DataTables/Buttons-2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="~/admin/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 <style>
     div.dataTables_filter {
         float: right;
@@ -95,14 +95,14 @@
 
 
     <!-- DataTable -->
-    <script src="~/lib/DataTables/datatables.min.js"></script>
-    <script src="~/lib/DataTables/Buttons-2.4.1/js/buttons.dataTables.min.js"></script>
+    <script src="~/admin/DataTables/datatables.min.js"></script>
+    <script src="~/admin/DataTables/Buttons-2.4.2/js/buttons.dataTables.min.js"></script>
+    <script src="~/admin/DataTables/pdfmake-0.2.7/pdfmake.js"></script>
 
-    <script type="text/javascript">
-$(document).ready(function () {
+    <script type="text/javascript">$(document).ready(function () {
 
 
-    $('#tbl_Manufacturer').dataTable({
+            $('#tbl_Manufacturer').dataTable({
 
                 "iDisplayLength": 50,
                 dom: 'Bfrtip',
