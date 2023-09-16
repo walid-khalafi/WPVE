@@ -1,4 +1,5 @@
 ﻿using System;
+using WPVE.Core.Enums;
 namespace WPVE.Web.Models.HomeViewModel
 {
     public class HeroViewModel
@@ -9,7 +10,7 @@ namespace WPVE.Web.Models.HomeViewModel
         /// <summary>
         /// Get or set Hero Name
         /// </summary>
-        public string Name { get; set; }
+        public HeroEnumeration Type { get; set; }
         public DefaultHero DefaultHero { get; set; }
         public VideoCallHero VideoCallHero { get; set; }
         public TravelHero TravelHero { get; set; }

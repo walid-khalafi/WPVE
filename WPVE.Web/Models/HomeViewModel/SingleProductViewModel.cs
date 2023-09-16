@@ -1,4 +1,5 @@
 ﻿using System;
+using WPVE.Core.Enums;
 namespace WPVE.Web.Models.HomeViewModel
 {
     public class SingleProductViewModel
@@ -7,7 +8,7 @@ namespace WPVE.Web.Models.HomeViewModel
         {
         }
 
-        public string Name { get; set; }
+        public SingleProductEnumeration Type { get; set; }
         public SingleProduct1 SingleProduct1 { get; set; }
         public SingleProduct2 SingleProduct2 { get; set; }
     }

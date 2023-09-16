@@ -1,7 +1,7 @@
 ﻿@model SingleProductViewModel
-@switch (Model.Name)
+@switch (Model.Type)
 {
-    case "SingleProduct1":
+    case WPVE.Core.Enums.SingleProductEnumeration.SingleProduct1:
         <!-- Gallery Start -->
         <section class="section">
             <div class="container">
@@ -70,7 +70,7 @@
         <!-- Gallery End -->
 
         break;
-    case "SingleProduct2":
+    case WPVE.Core.Enums.SingleProductEnumeration.SingleProduct2:
         <!-- Feature Start -->
         <section class="section bg-light">
             <div class="container">

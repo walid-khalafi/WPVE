@@ -1,9 +1,10 @@
-﻿@{
+﻿@model IndexViewModel
+@{
     ViewData["Title"] = "Home Page";
 
-    await Html.RenderPartialAsync("_LayoutHero", new HeroViewModel() { Name = "single-product" });
+    await Html.RenderPartialAsync("_LayoutHero", Model.heroViewModel);
 
-    await Html.RenderPartialAsync("_LayoutSingleProduct",new SingleProductViewModel() { Name="SingleProduct1"});
+    await Html.RenderPartialAsync("_LayoutSingleProduct",Model.singleProductViewModel);
 
     await Html.RenderPartialAsync("_LayoutPartner");
     }

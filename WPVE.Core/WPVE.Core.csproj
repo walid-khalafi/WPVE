@@ -12,6 +12,7 @@
     <None Remove="Domain\Users\" />
     <None Remove="Domain\Catalog\" />
     <None Remove="Domain\Orders\" />
+    <None Remove="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
@@ -19,6 +20,7 @@
     <Folder Include="Domain\Users\" />
     <Folder Include="Domain\Catalog\" />
     <Folder Include="Domain\Orders\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
