@@ -74,8 +74,9 @@
             <div id="navigation">
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
-                    <li><a asp-action="Index" class="sub-menu-item">صفحه اصلی </a></li>
-                    <li><a asp-action="Privacy" class="sub-menu-item"> حریم خصوصی </a></li>
+                    <li><a asp-controller="Home" asp-action="Index" class="sub-menu-item">صفحه اصلی </a></li>
+                    <li><a asp-controller="Home"  asp-action="Privacy" class="sub-menu-item"> حریم خصوصی </a></li>
+                    <li><a asp-controller="Home"  asp-action="Contact" class="sub-menu-item"> تماس باما </a></li>
 
                 </ul><!--end navigation menu-->
 
