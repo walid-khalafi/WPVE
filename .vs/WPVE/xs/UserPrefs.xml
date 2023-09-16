@@ -1,37 +1,26 @@
 ﻿<Properties StartupConfiguration="WPVE.Web">
-  <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
-      <Items>
-        <StartupItem ItemId="{61470BE7-C8D7-4B74-A49C-FE5FDAB4CB0A}" ItemName="WPVE.Web" ConfigurationId="https" />
-      </Items>
-    </MultiItemSolutionRunConfiguration>
-  </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>WPVE/WPVE.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Views/Home/_LayoutHero.cshtml">
     <Files>
       <File FileName="WPVE.Web/Views/Shared/_Layout.cshtml" Line="103" Column="39" />
-      <File FileName="WPVE.Web/Views/Home/Index.cshtml" Line="5" Column="46" />
-      <File FileName="WPVE.Web/Views/Home/_LayoutHero.cshtml" Line="17" Column="25" />
+      <File FileName="WPVE.Web/Views/Home/Index.cshtml" Line="5" Column="82" />
+      <File FileName="WPVE.Web/Views/Home/_LayoutHero.cshtml" Line="3" Column="4" />
+      <File FileName="WPVE.Web/Models/HomeViewModel/HeroViewModel.cs" Line="22" Column="88" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WPVE">
-            <Node name="WPVE.Web">
-              <Node name="Views">
-                <Node name="Home">
-                  <Node name="_LayoutHero.cshtml" selected="True" />
-                </Node>
-                <Node name="Shared" expanded="True" />
+          <Node name="WPVE" expanded="True">
+            <Node name="WPVE.Web" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="HomeViewModel" expanded="True" />
               </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="home" expanded="True">
-                  <Node name="js" expanded="True" />
-                </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -39,8 +28,16 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>WPVE/WPVE.csproj</String>
-  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="WPVE.Web" Name="WPVE.Web">
+      <Items>
+        <StartupItem ItemId="{61470BE7-C8D7-4B74-A49C-FE5FDAB4CB0A}" ItemName="WPVE.Web" ConfigurationId="https" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
