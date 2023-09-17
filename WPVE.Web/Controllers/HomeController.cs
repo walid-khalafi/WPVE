@@ -57,6 +57,10 @@ public class HomeController : Controller
         return View(model);
     }
 
+    public IActionResult Shop()
+    {
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
