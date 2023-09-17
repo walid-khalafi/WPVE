@@ -6,7 +6,9 @@ namespace WPVE.Web.Models.HomeViewModel
         public IndexViewModel()
         {
         }
+      
         public HeroViewModel heroViewModel { get; set; }
+
         public SingleProductViewModel singleProductViewModel { get; set; }
     }
 }

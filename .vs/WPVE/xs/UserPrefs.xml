@@ -9,16 +9,25 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WPVE" expanded="True">
+            <Node name="WPVE.Web">
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.WPVE.Web PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WPVE.Web/Models/HomeViewModel/HeroViewModel.cs">
-    <Files>
-      <File FileName="WPVE.Web/Views/Home/Index.cshtml" Line="5" Column="87" />
-      <File FileName="WPVE.Web/Views/Home/_LayoutHero.cshtml" Line="1065" Column="15" />
-      <File FileName="WPVE.Web/Models/HomeViewModel/HeroViewModel.cs" Line="46" Column="29" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

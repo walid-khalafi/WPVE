@@ -4,8 +4,11 @@
 
     await Html.RenderPartialAsync("_LayoutHero", Model.heroViewModel);
 
+    await Html.RenderPartialAsync("_LayoutPartner");
+
+    await Html.RenderPartialAsync("_LayoutNews");
+
     await Html.RenderPartialAsync("_LayoutSingleProduct",Model.singleProductViewModel);
 
-    await Html.RenderPartialAsync("_LayoutPartner");
     }
 
